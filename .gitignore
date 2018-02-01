@@ -1,0 +1,13 @@
+node_modules/
+SVGFiles/
+testQuery/
+testQueryLiski/
+testQueryMariupol/
+svgCreator/
+Git-2.15.1.2-64-bit.exe
+mp4-low.zip
+node-v8.9.1-x64.msi
+package-lock.json
+server.js
+server_liski.js
+server_mariupol.js

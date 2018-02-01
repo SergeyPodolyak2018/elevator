@@ -1,0 +1,1041 @@
+html, body { width: 100%; height: 100%; padding: 0; margin: 0 }
+        html { overflow:  hidden; }
+
+        #container {
+            width: 100%;
+            height: 100%;
+            /*float: left;*/
+            background-color: lightgrey;
+            border:1px solid #000000;
+            color: Blak;
+            overflow: hidden;
+        }
+        /*класс для хедера*/
+        .gorizontal {
+            width: 100%;
+            height: 56px;
+            float: left;
+            background-color: #323232;
+            /*border:2px solid #000000;
+            color: Black;
+            */
+             position: absolute; left: 0; top: 0;
+
+        }
+        .vertical {
+            width: 15%;
+            height: auto;
+            float: left;
+            background-color: rgba(0, 0, 0, 0);
+            /*border:2px solid #000000;
+            color: Black;
+            */
+             position: absolute; left: 0; top: 0;
+
+        }
+        #wrapper{
+            width: 100%;
+            height: 97%;
+            float: left;
+            background-color: #fafde9;/*more yellow before this we use (dadada) grey ckolour*/
+            color: Black;
+            overflow: hidden;
+
+
+        }
+
+        #footer{
+            width: calc(100% - 4px);
+            height: calc(3% - 1px);
+            float: left;
+            background-color: #dadada;
+            border:1px solid #ababab;
+            /*color: Black;*/
+        }
+
+   /* p { margin: 0; padding: 0}*/
+
+        /*-------------------------------------------------------------------------------*/
+        /*меню датчики*/
+                        .datchiki_kontrol_konteiner_show{
+
+                        height: 100vw;
+                        width: 100vh;
+                        /*visibility: visible;*/
+                        z-index: 900;
+                        background: green;
+                        }
+                        .datchiki_kontrol_konteiner_hide{
+
+                        height: 50%;
+                        width: 50%;
+                        /*visibility: hidden;*/
+                        }
+
+                        /*Спрятанное меню датчиков*/
+                        .hiden_datchiki{
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+
+                        }
+
+                        /*показанное меню датчиков*/
+                        .visible_datchiki{
+                        /*visibility: visible;*/
+                        display: inline;
+                        position: absolute;
+                        height: auto;
+                        z-index: 910;
+                        top:40%;
+                        left:40%;
+                        background-color: #e9e9e9;
+                        border:1px solid #808080;
+                        border-radius: 2px;
+                        color: #e9e9e9;
+                        }
+                         /*див с датчиками*/
+                         #datchiki_kontrol_header{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+                        /*див с датчиками*/
+                         #datchiki{
+                            width: calc(50%-4px);
+                            height: 70%;
+                            float: left;
+                            background-color: #e9e9e9;
+                            color: Black;
+                        }
+                        /*див с контролом*/
+                            #control{
+                            width: calc(50%-4px);
+                            height: 70%;
+                            float: left;
+                            background-color: #e9e9e9;
+                            color: Black;
+                        }
+                        #datchiki_kontrol_footer{
+                            width: 98%;
+                            height: 15%;
+                            float: left;
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 2px;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+                        }
+                        .dat_cont{
+                            width:100px;
+
+                        }
+                        .remont_button {
+                          width:40px;
+                          height:16px;
+                          display: inline-block;
+                          background: silver;
+                          font-family: arial,sans-serif;
+                          font-size: 13px;
+                          /*font-weight: #323232;*/
+                          color: black;
+                          text-decoration: none;
+                          user-select: none;
+                          padding: .1em 0.8em;
+                          outline: none;
+                          border: 1px solid rgba(0,0,0,.1);
+                          border-radius: 2px;
+                          /*background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);*/
+                          transition: all .218s ease 0s;
+                        }
+                        .remont_button:active {
+                            background: #00e6e6 /*linear-gradient(#f4f4f4, #f1f1f1)*/;
+
+                            color: rgb(51,51,51);
+                            border: 1px solid rgb(204,204,204);
+                            /*background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));*/
+                            box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+                        }
+                        /*-----------------------------------------------------*/
+
+        .hiden{
+        visibility: hidden;
+        display: none;
+        position: absolute;
+        height: auto;
+        width: 150px;
+        }
+
+
+        .visible{
+        visibility: visible;
+        display: inline;
+        position: absolute;
+        height: auto;
+        width: 170px;
+        top: 52px;
+        background-color: #323232;
+        border:2px solid #000000;
+        color: Black;
+        }
+
+        .hiden_menu{
+        visibility: hidden;
+        display: none;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        float: left;
+
+        }
+
+        .visible_menu{
+        visibility: visible;
+        display: inline;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        float: left;
+        }
+
+   /*      #datchiki_kontrol{
+            visibility: visible;
+            width:  100%;
+            height: 100%;
+            background-color: wight;
+            border:2px solid wight;
+
+        }
+        */
+
+        .selected {
+        background: #FFF8DC;
+        color: #000000;
+        }
+        /*Объекты SVG*/
+                #nor{
+                width: 100%;
+                height: 100%;
+
+                }
+
+                .menu_button_typ1_gorizont{
+                width: 12%;
+                height: 100%;
+                }
+
+                .menu_button_typ2_gorizontal{
+                width: 10%;
+                height: 100%;
+                }
+                .menu_button_typ1_vertical{
+                width: 100%;
+                height: 12%;
+                }
+                .menu_button_typ2_vertical{
+                width: 78%;
+                height: 12%;
+                }
+
+                .set_disabled{
+                pointer-events: none;
+                }
+               /* a.button_with_SVG2:hover {
+                  color: rgb(24,24,24);
+                  border: 1px solid rgb(198,198,198);
+                  background: #323232 linear-gradient(#222222, #303030);
+                  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+                    }*/
+                  /*  a.button_with_SVG:hover {
+                  color: rgb(24,24,24);
+                  border: 1px solid rgb(198,198,198);
+                  background: #323232 linear-gradient(#222222, #303030);
+                  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+                    }*/
+
+
+
+         /*div для объектов SVG*/
+                .main_menu_button{
+                    width: 9%;
+                    height: 100%;
+                    float: left;
+                    background-color: #dadada;
+                    color: Black;
+                    overflow: hidden;
+                }
+
+        .img1{
+        width: 9%;
+        height: 100%;
+        }
+
+        .img2{
+        width: 9%;
+        height:100%;
+        }
+
+        .img3{
+       width: 9%;
+       height:100%;
+
+        }
+        a {margin: 0 -2px;}
+
+        .button_menu{
+        margin:5px;
+        }
+        a.menu_button {
+          width:140px;
+
+          display: inline-block;
+          font-family: arial,sans-serif;
+          font-size: 12px;
+          /*font-weight: #323232;*/
+          color: #bcbcbc;
+          text-decoration: none;
+          user-select: none;
+          padding: .2em 1.2em;
+          outline: none;
+          border: 1px solid rgba(0,0,0,.1);
+          border-radius: 2px;
+          /*background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);*/
+          transition: all .218s ease 0s;
+        }
+        a.menu_button:hover {
+          /*color: rgb(24,24,24);*/
+          border: 1px solid rgb(198,198,198);
+          background: #323232 linear-gradient(#222222, #303030);
+          box-shadow: 0 1px 2px rgba(0,0,0,.1);
+        }
+        a.menu_button:active {
+          color: rgb(51,51,51);
+          border: 1px solid rgb(204,204,204);
+          background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
+          box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+        }
+
+.zoom:hover { zoom: 3; }
+
+
+/*Меню выбора маршрутов*/
+
+                        #rout{
+                            /*visibility: visible;*/
+                            display: none;
+                            /*width: 400px;*/
+                            /*height: 400px;*/
+                            /*min-width: 176px*/
+                            position: absolute;
+                            height: auto;
+                            /*z-index: 910;*/
+                            top:40%;
+                            left:40%;
+                            background-color: #e9e9e9;
+                            border:1px solid #808080;
+                            border-radius: 2px;
+                            color: #e9e9e9;
+                        }
+                         /*див с датчиками*/
+                         #rout_variant_header{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+                        /*див с культурой*/
+                         #rout_kultura{
+                            width: calc(100%-4px);
+                            height: 20%;
+                            float: left;
+                            background-color: #e9e9e9;
+                            color: Black;
+                        }
+                        /*див с вариантами*/
+                         #rout_variant{
+                            width: calc(100%-4px);
+
+                            height: 40%;
+                            float: left;
+                            background-color: #e9e9e9;
+                            color: Black;
+                        }
+
+                        #rout_variant_footer{
+                            width: 98%;
+                            height: 15%;
+                            float: left;
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 2px;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+                        }
+                        .button_rout {
+
+                          display: inline-block;
+                          font-family: arial,sans-serif;
+                          font-size: 20px;
+                          margin: 2px;
+                          /*font-weight: #323232;*/
+                          /*color: #bcbcbc;*/
+                          text-decoration: none;
+                          user-select: none;
+                          padding: .5em 1.2em;
+                          outline: none;
+                          border: 1px solid rgba(0,0,0,.1);
+                          border-radius: 2px;
+                          /*background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);*/
+                          transition: all .218s ease 0s;
+                        }
+                        .button_rout:hover {
+                            background: #00ffff /*linear-gradient(#f4f4f4, #f1f1f1)*/;
+                          /*background: rgb(24,24,24);*/
+                          color: rgb(24,24,24);
+                          border: 1px solid rgb(198,198,198);
+                          /*background: #323232 linear-gradient(#222222, #303030);*/
+                          box-shadow: 0 1px 2px rgba(0,0,0,.1);
+                        }
+                        .button_rout:active {
+                            background: #00e6e6 /*linear-gradient(#f4f4f4, #f1f1f1)*/;
+
+                            color: rgb(51,51,51);
+                            border: 1px solid rgb(204,204,204);
+                            /*background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));*/
+                            box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+                        }
+
+
+
+
+/*Меню выбора маршрутов, Меню останова маршрутов, Меню перезапуска маршрутов, Меню авария запуска маршрута*/
+
+                        #rout_confirmation, #stop_rout_confirmation, #restart_rout_confirmation,#alarm_rout,#confirm_mixin_kylt_rout{
+                            /*visibility: visible;*/
+                            display: none;
+                            width: 400px;
+                            height: 400px;
+
+                            position: absolute;
+                            height: auto;
+                            /*z-index: 910;*/
+                            top:40%;
+                            left:40%;
+                            background-color: #e9e9e9;
+                            border:1px solid #808080;
+                            border-radius: 2px;
+                            color: #e9e9e9;
+                        }
+                         /*див с шапкой*/
+                         #rout_confirmation_header, #stop_rout_confirmation_header, #restart_rout_confirmation_header, #alarm_rout_header,#confirm_mixin_kylt_rout_header{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+
+                        /*див с содержанием*/
+                         #rout_confirmation_content, #stop_rout_confirmation_content, #restart_rout_confirmation_content, #alarm_rout_content,#confirm_mixin_kylt_rout_content{
+                            width: 98%;
+                            height: 70%;
+                            float: left;
+                            background-color: #e9e9e9;
+                            color: Black;
+                        }
+
+
+                        /*див с подвалом*/
+                        #rout_confirmation_footer, #stop_rout_confirmation_footer, #restart_rout_confirmation_footer, #alarm_rout_footer,#confirm_mixin_kylt_rout_footer{
+                            width: 98%;
+                            height: 15%;
+                            float: left;
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 2px;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+                        }
+
+
+
+/*Таблици аварий, маршрутов, устройств */
+
+                        #archiv_message, #archiv_rout, #alarm_message, #archiv_device {
+
+                            font-family: sans-serif;
+                            display: none;
+                            width: 700px;
+                            height: auto;
+                            position: absolute;
+                            top:40%;
+                            left:40%;
+                            background-color: #e9e9e9;
+                            border:1px solid #808080;
+                            border-radius: 2px;
+                            color: #e9e9e9;
+
+                        }
+                        /*див с шапкой*/
+                         #archiv_message_header,#archiv_rout_header, #alarm_message_header, #archiv_device_header{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+                         #archiv_message_filter, #archiv_rout_filter, #archiv_device_filter{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+
+
+                        /*див с содержанием*/
+                         #archiv_message_content, #archiv_rout_content, #alarm_message_content, #archiv_device_content{
+                            width: 98%;
+                            height: 300px;
+                            float: left;
+                            overflow:auto;
+                            overflow-y: hidden;
+                            background-color: #e9e9e9;
+                            color: Black;
+                            margin: 1%;
+
+                        }
+
+
+                        #table_head_rchiv_message, #table_body_alarm_message, #table_rchiv_rout, #table_rchiv_device{
+                            width: 99%;
+                            border-collapse: collapse;                            
+                            background-color: #e9e9e9;
+                            /*margin-left: 2px;*/                         
+
+                        }
+
+                        #table_body_alarm_message thead, #table_rchiv_rout thead, #table_rchiv_device thead {
+                            background-color: silver;
+                            /*position: fixed;*/
+                            width: 100%;   
+
+                        }
+
+                        #table_rchiv_message, #table_rchiv_rout,#table_rchiv_device{                          
+                          display: block;
+                          overflow-y: scroll; 
+                          max-height: 275px;
+                          border-collapse: collapse;                                               
+                        }
+                        #table_rchiv_message td,#table_rchiv_rout td,#table_rchiv_device td{border: 1px solid #000000;}
+
+                        #table_head_rchiv_message,#table_head_rchiv_rout,#table_head_rchiv_device{
+
+                            /*border-left: 1px solid #000000;*/
+                            width: 100%;
+                            background-color: silver;
+                        }
+                        #table_head_rchiv_message div,#table_head_rchiv_rout div,#table_head_rchiv_device div{
+                            border-top: 1px solid #000000;                            
+                            border-right: 1px solid #000000;
+                            float: left;
+                            background-color: #c0c0c0;                            
+                        }
+                        #table_head_rchiv_message div:nth-child(1),#table_head_rchiv_rout div:nth-child(1),#table_head_rchiv_device div:nth-child(1){
+                                                      
+                            border-left: 1px solid #000000;
+                            
+                        }
+                        
+                        /*див с подвалом*/
+                        #archiv_message_footer, #archiv_rout_footer, #alarm_message_footer, #archiv_device_footer{
+                             text-align: right;
+                            width: 98%;
+                            height: 15%;
+                            float: left;
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+                        }
+
+
+/*график токов*/
+
+                        #archive_current{
+                            font-family: sans-serif;
+                            display: none;
+                            width: 900px;
+                            height: auto;
+                            position: absolute;
+                            top:10%;
+                            left:10%;
+                            background-color: #e9e9e9;
+                            border:1px solid #808080;
+                            border-radius: 2px;
+                            color: #e9e9e9;
+                        }
+                         /*див с шапкой*/
+                         #archive_current_header{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+                         #archive_current_filter{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+
+                          #archive_current_slider{
+                          width: 5%;
+                            height: 600px;
+                            float: left;
+                            margin-top: 2%;
+
+                          }
+                          #current_scale_slider{
+                                width: 10px;
+                                height: 571px;
+                                margin-left: 27px;
+                              -webkit-appearance: slider-vertical;
+                              data-show-value:true;
+                          }
+                        /*див с содержанием*/
+                         #archive_current_content{
+                            width: 98%;
+                            height: 55%;
+                            float: left;
+                            /*overflow:auto;*/
+                            background-color: #e9e9e9;
+                            color: Black;
+                            margin: 1%;
+
+                        }
+                        #current_svg{
+                            width: 100%;
+                            height: 100%;
+
+                        }
+
+                        /*див с подвалом*/
+                        #archive_current_footer{
+                            text-align: right;
+                            width: 98%;
+                            height: 15%;
+                            float: left;
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+                        }
+
+
+/*Окно задвижка открыть закрыть*/
+
+                           #zadvijka_kontrol_menu{
+
+                            font-family: sans-serif;
+                            display: none;
+                            width: 430px;
+                            height: auto;
+                            position: absolute;
+                            top:40%;
+                            left:40%;
+                            background-color: #e9e9e9;
+                            border:1px solid #808080;
+                            border-radius: 2px;
+                            color: #e9e9e9;
+
+                        }
+                         /*див с шапкой*/
+                         #zadvijka_kontrol_menu_header{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+
+
+                        /*див с содержанием*/
+                         #zadvijka_kontrol_menu_content{
+                            width: 98%;
+                            float: left;
+                            background-color: #e9e9e9;
+                            color: Black;
+                            margin: 1%;
+
+                        }
+                        /*Разделы управления завижкой*/
+                        #zadvijka_kontrol_menu_content_state, #zadvijka_kontrol_menu_content_calibration, #zadvijka_kontrol_menu_content_control {
+                            width: 98%;
+                            height: 30%;
+                            float: left;
+                            overflow:auto;
+                            background-color: #c0c0c0;
+                            color: Black;
+                            margin: 1%;
+
+                        }
+                        #zadvijka_kontrol_menu_content_state table, #zadvijka_kontrol_menu_content_calibration table, #zadvijka_kontrol_menu_content_control table{
+                        width: 100%;
+                             border-collapse: collapse;
+                            border: 0px solid #000000;
+
+                        }
+
+                        #zadvijka_kontrol_menu_content_state thead, #zadvijka_kontrol_menu_content_calibration thead, #zadvijka_kontrol_menu_content_control thead{
+                             background-color: yellow;
+                        }
+                        #zadvijka_kontrol_menu_content_state td, #zadvijka_kontrol_menu_content_calibration td, #zadvijka_kontrol_menu_content_control td{
+                        border: 0px solid #000000;
+                        font-family: sans-serif;
+                            font-size:10pt;
+                        }
+                        #zadvijka_kontrol_menu_content_state_control1, #zadvijka_kontrol_menu_content_state_control2{
+                        border: 1px solid #000000;
+                        }
+
+                        /*див с подвалом*/
+                        #zadvijka_kontrol_menu_footer{
+                            text-align: right;
+                            width: 98%;
+                            height: 15%;
+                            float: left;
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+                        }
+                        .disabeledField{
+                        pointer-events: none;
+                        background-color: rgb(255, 255, 255);
+                        }
+
+
+                         #zadvijka_kontrol_menu_button_calibrate {
+                              display: inline-block;
+                              font-family: sans-serif;
+                              font-size: 10pt;
+
+                              color: rgb(68,68,68);
+                              text-decoration: none;
+                              user-select: none;
+                              padding: .2em 1.2em;
+                              outline: none;
+                              border: 1px solid rgba(0,0,0,.1);
+                              border-radius: 2px;
+                              /*background: linear-gradient(#f4f4f4, #f1f1f1);*/
+                              transition: all .218s ease 0s;
+                              margin: 0;
+                            }
+                            #zadvijka_kontrol_menu_button_calibrate:hover {
+                              color: rgb(24,24,24);
+                              border: 1px solid rgb(198,198,198);
+                              /*background: linear-gradient(#f7f7f7, #f1f1f1);*/
+                              box-shadow: 0 1px 2px rgba(0,0,0,.1);
+                            }
+                            #zadvijka_kontrol_menu_button_calibrate:active {
+                              color: rgb(51,51,51);
+                              border: 1px solid rgb(204,204,204);
+                              /*background: linear-gradient(rgb(238,238,238), rgb(224,224,224));*/
+                              box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+                            }
+
+
+ /*_______________________________________________________________Таблици настроек _______________________________________________________________________________________*/
+
+                        #settings_noriya, #settings_konveyer, #settings_zadvijka, #settings_zadvijkaGroup,  #settings_silos,
+                        #settings_klapan, #settings_ventilyator, #settings_gate, #settings_separator, #settings_tube, #add_equipment,
+                        #change_row_link, #change_row_culture, #change_row_device_settings, #settings_bell, #settings_current, #settings_analog_dat, #settings_kylt, #kylt_set_confirmation_window,
+                        #position_pt_confirmation_window,#oll_mex_confirmation_window,#settings_enable{
+
+                            font-family: sans-serif;
+                            display: none;
+                            width: 500px;
+                            height: auto;
+                            position: absolute;
+                            top:40%;
+                            left:40%;
+                            background-color: #e9e9e9;
+                            border:1px solid #808080;
+                            border-radius: 2px;
+                            color: #e9e9e9;
+
+                        }
+
+                        #position_pt_confirmation_window,#oll_mex_confirmation_window {
+                            width: 320px;
+                        }
+                        /*
+                        #settings_klapan{
+                            width: 400px;
+                        }
+                        #settings_zadvijka, #settings_noriya{
+                            width: 450px;
+                        }
+                        #settings_silos, #settings_konveyer, #settings_ventilyator{
+                            width: 470px;
+                        }
+                        */
+                         /*див с шапкой*/
+                         #settings_noriya_header,#settings_konveyer_header,
+                         #settings_zadvijka_header, #settings_zadvijkaGroup_header, #settings_silos_header,#settings_klapan_header,
+                         #settings_ventilyator_header,#settings_gate_header,#settings_separator_header,#settings_enable_header,
+                         #settings_tube_header,#add_equipment_header,#change_row_link_header, #change_row_culture_header, #change_row_device_settings_header, #settings_bell_header,
+                         #settings_current_header, #settings_analog_dat_header,#settings_kylt_header,#kylt_set_confirmation_window_header,#position_pt_confirmation_window_header,#oll_mex_confirmation_window_header{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+
+
+
+                        /*див с содержанием*/
+                         #settings_noriya_content, #settings_konveyer_content,
+                         #settings_zadvijka_content, #settings_zadvijkaGroup_content, #settings_silos_content,#settings_klapan_content,
+                         #settings_ventilyator_content,#settings_gate_content,#settings_separator_content,#settings_enable_content,
+                         #settings_tube_content,#add_equipment_content,#change_row_link_content,
+                         #change_row_culture_content, #change_row_device_settings_content, #settings_bell_content, #settings_current_content, #settings_analog_dat_content, #settings_kylt_content,#kylt_set_confirmation_window_content,
+                         #position_pt_confirmation_window_content,#oll_mex_confirmation_window_content{
+                            width: 98%;
+                            height: auto;
+                            float: left;
+                            background-color: #e9e9e9;
+                            color: Black;
+                            margin: 1%;
+
+                        }
+                        /*див с окошками настроек*/
+                         #settings_noriya_global, #settings_noriya_aditional,
+                         #settings_konveyer_global, #settings_konveyer_aditional,
+                         #settings_zadvijka_global, #settings_zadvijkaGroup_global,  #settings_zadvijka_aditional, #settings_zadvijkaGroup_aditional, #settings_zadvijkaGroup_aditional_indexesOfGroup,
+                         #settings_silos_global, #settings_silos_aditional,
+                         #settings_klapan_global, #settings_klapan_aditional,
+                         #settings_ventilyator_global, #settings_ventilyator_aditional,
+                         #settings_gate_global,#settings_separator_global,#settings_tube_global,#settings_enable_global,
+                         #settings_gate_aditional,#settings_separator_aditional,#settings_tube_aditional,#settings_bell_global,#settings_enable_aditional,
+                         #settings_bell_aditional,#settings_current_global, #settings_analog_dat_global,#settings_kylt_global,#kylt_set_confirmation_window_global,
+                         #kposition_pt_confirmation_window_global,#oll_mex_confirmation_window_global{
+                            height: auto;
+                            float: left;
+                            background-color: #e9e9e9;
+                            color: Black;
+                            margin: 1%;
+
+                        }
+
+
+                            #settings_noriya_sensors,
+                            #settings_konveyer_sensors,
+                            #settings_zadvijka_sensors,
+                            #settings_zadvijkaGroup_sensors,
+
+                            #settings_silos_sensors,
+                            #settings_klapan_sensors,
+                            #settings_gate_sensors,#settings_separator_sensors,#settings_enable_sensors,
+                            #settings_tube_sensors,
+                            #settings_bell_sensors{
+                            width: 100%;
+                            float:left;
+                        }
+
+
+                            #table_settings_noriya_sensors td,
+                            #table_settings_konveyer_sensors td,
+                            #table_settings_zadvijka_sensors td,
+                            #table_settings_silos_sensors td,
+                            #table_settings_klapan_sensors td,
+                            #table_settings_ventilyator_sensors td,
+                            #table_settings_gate_sensors td,#table_settings_enable_sensors td,
+                            #table_settings_tube_sensors td
+                            {
+                            width: auto;
+                            border:0;
+
+                            /*width: 100%;*/
+                            /*border-collapse: collapse;*/
+                            /*border: 1px solid #000000;*/
+                        }
+
+
+                        /*див с подвалом*/
+                       #settings_noriya_footer,#settings_konveyer_footer,#settings_zadvijka_footer, #settings_zadvijkaGroup_footer, 
+                       #settings_silos_footer,#settings_klapan_footer,#settings_ventilyator_footer,
+                       #settings_gate_footer,#settings_separator_footer,#settings_tube_footer,#settings_enable_footer,
+                       #add_equipment_footer,#change_row_link_footer,#change_row_culture_footer,#change_row_device_settings_footer,
+                       #settings_bell_footer, #settings_current_footer, #settings_analog_dat_footer, #settings_kylt_footer,#kylt_set_confirmation_window_footer,#position_pt_confirmation_window_footer,
+                       #oll_mex_confirmation_window_footer{
+
+                            width: 98%;
+                            height: 15%;
+                            float: left;
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+                        }
+
+/*Таблици линков  и культур*/
+
+                        #linck_settings, #culture_settings, #device_settings{
+
+                            font-family: sans-serif;
+                            display: none;
+                            width: 500px;
+                            height: auto;
+                            position: absolute;
+                            top:40%;
+                            left:40%;
+                            background-color: #e9e9e9;
+                            border:1px solid #808080;
+                            border-radius: 2px;
+                            *color: #e9e9e9;
+
+                        }
+                         /*див с шапкой*/
+                         #linck_settings_header,#culture_settings_header,#device_settings_header{
+                            width: 98%;
+                            height: 15%;
+                            /*float: left;*/
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+
+                        }
+
+
+
+                        /*див с содержанием*/
+                         #linck_settings_content,#culture_settings_content,#device_settings_content {
+                            width: 98%;
+                            height: 300px;
+                            float: left;
+                            overflow:auto;
+                            background-color: #e9e9e9;
+                            color: Black;
+                            margin: 1%;
+
+                        }
+
+
+                            #table_linck_settings tr:hover,#table_culture_settings tr:hover,#table_device_settings tr:hover
+                            {
+                            background-color: #ffed00;
+                            }
+
+                            #table_linck_settings td, #table_culture_settings td,#table_device_settings td
+                            {
+
+                            border-collapse: collapse;
+                            border: 1px solid #000000;
+
+                        }
+                        #table_linck_settings, #table_culture_settings,#table_device_settings
+                            {
+                            width: 100%;
+                            border-collapse: collapse;
+                            border: 1px solid #000000;
+
+                        }
+
+                        /*див с подвалом*/
+                       #linck_settings_footer, #culture_settings_footer,#device_settings_footer{
+
+                            width: 98%;
+                            height: 15%;
+                            float: left;
+                            background-color: silver;
+                            border-radius: 5px;
+                            color: Black;
+                            margin: 1%;
+                            padding-top: 3px;
+                            padding-bottom:3px;
+                        }
+
+
+
+ /*табличка с запущенными маршрутами*/
+ /*
+                        #oll_route_statuses{
+                            font-family: sans-serif;
+                            display: none;
+                            width: auto;
+                            height: auto;
+                            position: absolute;
+                            top:20%;
+                            left:20%;
+                            background-color: #e9e9e9;
+                            border:1px solid #808080;
+                            border-radius: 2px;                         
+
+                        }
+                        */
