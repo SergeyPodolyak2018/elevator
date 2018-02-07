@@ -33,15 +33,9 @@ function clic_on_source(){
             success: function( result ) {
             	 var  status_source=JSON.parse(result);
             	 if (status_source.alarm ==0) {
-
             	 	show_source(source_index_internal);//показать источник
-
-
-
             	 }else{
-
             	 	restart_rout_variant_confirm(source_index_internal);
-
             	 }
             },
             error: function (jqXHR, exception) {
@@ -64,10 +58,16 @@ function clic_on_stop_source(){
         header_menu.show_button(cancel_stop_rout_button);
          $('.start_rout_linck').addClass("set_disabled");
 	 $(svgdom.getElementsByClassName("source")).on('click', function(e){
-     var source_name =($(this).attr('class').split(' ')[1]);
-    // alert(source_name);
+        var source_name =($(this).attr('class').split(' ')[1]);    
+        var mask_start=1048576;
         var source_index_internal=parseInt(source_name.match(/-*[0-9]+/));
-        stop_rout_variant_confirm(source_index_internal);
+
+        //проверка в глобальном объекте что объект действительно источник
+        var mask_start=1048576;
+        var status=global_object_status[source_index_internal][3];
+        if ((status & mask_start)>0){
+            stop_rout_variant_confirm(source_index_internal);
+        }        
      })
 }
 //клик на источник при экстренной остановке маршрута

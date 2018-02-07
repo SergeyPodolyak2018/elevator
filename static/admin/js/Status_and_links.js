@@ -1,6 +1,6 @@
 //отображение статусов механизмов
 function change(oll_mex_status) {
-
+  console.log(globalObjectSatusOfUser.getUserStatus());
     var remont_maska= 16777216; //двадцать четвертый бит равен единице
     var norma_maska = 268435456; //двадцать восьмой бит равен единице
   // Получаем объект SVG
@@ -31,8 +31,8 @@ function change(oll_mex_status) {
 
                     if (element!=null){
                       if (status==0){
-                        $(element).css('fill', '#C5C6C6');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element).removeAttr("style");
+                        $(element1).removeAttr("style");
                       }
 
                       if (status==1){
@@ -102,8 +102,8 @@ function change(oll_mex_status) {
                       if (element!=null){
 
                       if (status==0){
-                        $(element).css('fill', '#C5C6C6');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element).removeAttr("style");
+                        $(element1).removeAttr("style");
                       }
 
                       if (status==1){
@@ -731,11 +731,11 @@ function change(oll_mex_status) {
                 $("#footer_login").text(oll_mex_status.login);
 
                 switch(oll_mex_status.control){
-                    case 0:$("#footer_control").text('просмотр');
+                    case 1:$("#footer_control").text('Наладка');
                         break;
-                    case 1 :$("#footer_control").text('управление');
+                    case 2 :$("#footer_control").text('Управление');
                         break;
-                    case 2 :$("#footer_control").text('наладка');
+                    case 3 :$("#footer_control").text('Просмотр');
                         break;
                     default:
                         //console.log( 'Мы надеемся, что и в вашем браузере все ок!' );
@@ -756,7 +756,8 @@ function change(oll_mex_status) {
                 }
 
                 //Окно текущих аварий
-                if (oll_mex_status.alarm > 0){
+                if (oll_mex_status.alarm > 0 && globalObjectSatusOfUser.getUserStatus!=3){
+
                      let logotip_object = document.getElementById('logotip');
                      let logotip_object_content = logotip_object.contentDocument;
                      let logotip_object_content_line=logotip_object_content.getElementsByClassName('logotip');

@@ -1,4 +1,4 @@
-function Header_menu(){
+function Header_menu(userSatus){
 
 	this.cancel_start_rout_button;
 	this.start_rout_button;
@@ -56,13 +56,28 @@ function Header_menu(){
 		exit_not_press = SVG.getElementsByClassName('exit_not_press');
 		exit_press = SVG.getElementsByClassName('exit_press');
 
-		set_function_click_on_button(start_rout_button,clic_on_source,1);
-		set_function_click_on_button(cancel_start_rout_button,hide_source_receiver,1);
-		set_function_click_on_button(stop_rout_button,clic_on_stop_source,1);
-		set_function_click_on_button(cancel_stop_rout_button,hide_source_receiver,1);
+		if (userSatus==1 || userSatus==2){
+			set_function_click_on_button(start_rout_button,clic_on_source,1);
+			set_function_click_on_button(cancel_start_rout_button,hide_source_receiver,1);
+			set_function_click_on_button(stop_rout_button,clic_on_stop_source,1);
+			set_function_click_on_button(cancel_stop_rout_button,hide_source_receiver,1);
 
-        set_function_click_on_button(extra_stop_rout_button, clic_on_extra_stop_source,1);
-        set_function_click_on_button(cancel_extra_stop_rout_button, hide_source_receiver,1);
+	        set_function_click_on_button(extra_stop_rout_button, clic_on_extra_stop_source,1);
+	        set_function_click_on_button(cancel_extra_stop_rout_button, hide_source_receiver,1);
+
+			set_function_click_on_button(ring_grey,bell_command,1,1);
+			set_function_click_on_button(ring_grey,bell_command,2,4);
+			set_function_click_on_button(ring_green,bell_command,1,1);
+			set_function_click_on_button(ring_green,bell_command,2,4);
+			set_function_click_on_button(ring_blue,bell_command,1,1);
+			set_function_click_on_button(ring_blue,bell_command,2,4)
+			set_function_click_on_button(ring_flash,bell_command,1,1);
+			set_function_click_on_button(ring_flash,bell_command,2,4);
+			
+			set_function_click_on_button(logotip,alarm,1);
+		}
+
+
 
 		//set_function_click_on_button(archiv_close,showmenu(document.getElementById("archiv_button").getSVGDocument()));// не работает
 		set_function_click_on_button(archiv_close,showmenu,1);
@@ -71,17 +86,9 @@ function Header_menu(){
 		set_function_click_on_button(servise_close,showmenu1,1);
 		set_function_click_on_button(servise_open,hidemenu,1);
 
-		set_function_click_on_button(logotip,alarm,1);
+		set_function_click_on_button(exit_not_press,logOut,1);
 
-		set_function_click_on_button(ring_grey,bell_command,1,1);
-		set_function_click_on_button(ring_grey,bell_command,2,4);
-		set_function_click_on_button(ring_green,bell_command,1,1);
-		set_function_click_on_button(ring_green,bell_command,2,4);
-		set_function_click_on_button(ring_blue,bell_command,1,1);
-		set_function_click_on_button(ring_blue,bell_command,2,4)
-		set_function_click_on_button(ring_flash,bell_command,1,1);
-		set_function_click_on_button(ring_flash,bell_command,2,4);
-
+		
 		//set_function_click_on_button(cancel_start_rout_button,hide_source_receiver());
 
 		//set_function_click_on_button(stop_rout_button,clic_on_stop_source());

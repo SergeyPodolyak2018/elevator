@@ -20,7 +20,7 @@
 
 </head>
 <body>
-    <div id="datchiki_kontrol_konteiner" style="width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.3); position: absolute; display: none">
+    <!--<div id="datchiki_kontrol_konteiner" style="width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.3); position: absolute; display: none">
         <div id="datchiki_kontrol" class="hiden_datchiki draggable" style="min-width:250px">
                  <div id="datchiki_kontrol_header">
                      <table width="100%" cellspacing="2" cellpadding="1" border="0">
@@ -49,7 +49,7 @@
                  </div>
              </div>
 
-    </div>
+    </div>-->
      <div id="container" >
 
             <div id="header"  class="gorizontal">
@@ -305,79 +305,55 @@
 
 <!-- Выпадающее меню архив-->
          <div id="archiv" class="hiden">
-             <a href="#" class="menu_button" onclick="archiv_alarm()">Сообщения</a>
-             <a href="#" class="menu_button" onclick="archive_current_open(2)">Графики токов</a>
-             <a href="#" class="menu_button" onclick="showHideCurrent()">Скрыть/Показать токи</a>
-             <!--<a href="#" class="menu_button" onclick="show_current()">Показать/Показать токи</a>-->
-             <a href="#" class="menu_button" onclick="showNamesOfKlapan()">Скрыть/Показать имена</a>
+             <a href="#" class="menu_button" onclick="archiv_alarm()">Сообщения</a>                          
              <a href="#" class="menu_button" onclick="archiv_rout()">Маршруты</a>
              <a href="#" class="menu_button" onclick="archiv_devices()">Оборудование</a>
+             <a href="#" class="menu_button" onclick="archive_current_open(2)">Графики токов</a>
+             <a href="#" class="menu_button" onclick="archive_current_open(1)">Текущие графики токов</a>
 
          </div>
 <!-- Выпадающее меню сервис-->
-         <div id="servis" class="hiden">
-            <a href="#" class="menu_button" onclick="archive_current_open(1)">Текущие графики токов</a>
+         <div id="servis" class="hiden">            
              <a href="#" class="menu_button" onclick="showmenu2(this,1)">Конфигурация        -></a>
              <a href="#" class="menu_button" onclick="showmenu2(this,2)">Культура            -></a>
+             <a href="#" class="menu_button" onclick="showmenu2(this,3)">Настройки видимости -></a>
              <a href="#" class="menu_button">О программе</a>
          </div>
  <!-- Выпадающее меню настройки-->        
          <div id="configuration" class="hiden">
-             <a href="#" class="menu_button">Авторизация</a>
-             <a href="#" class="menu_button" onclick="setings_bell_open()">Настройки звонка</a>
+             <!--<a href="#" class="menu_button">Авторизация</a>-->
+             <a href="#" id="menu_button_setings_bell_open" class="menu_button">Настройки звонка</a>
+             <!--<a href="#" id="menu_button_setings_bell_open" class="menu_button" onclick="setings_bell_open()">Настройки звонка</a>
              <a href="#" class="menu_button" onclick="device_settings_open()">БД устройств</a>
-             <a href="#" class="menu_button" onclick="linck_open()">БД связей</a>
+             <a href="#" class="menu_button" onclick="linck_open()">БД связей</a>-->
+             <a href="#" id="menu_button_device_settings" class="menu_button">БД устройств</a>
+             <a href="#" id="menu_button_linck_open" class="menu_button">БД связей</a>
              <a href="#" class="menu_button">БД тех. характеристик</a>
              <a href="#" class="menu_button">БД журнал ТО</a>
              <a href="#" class="menu_button">БД типы работ</a>
              <a href="#" class="menu_button">БД моточасы</a>
-             <a href="#" class="menu_button" onclick="confirm_mixing_kylt()">БД настройка</a>
-             <a href="#" class="menu_button" onclick="experiment_obj()">Отладка</a>
+             <a href="#" class="menu_button">БД настройка</a>
+             <a href="#" class="menu_button">Отладка</a>
 
          </div>
          <!-- Выпадающее меню культура-->
          <div id="kulture" class="hiden">
-             <a href="#" class="menu_button" onclick="showHideKylt()">Скрыть/Показать культ.</a>
-             <!--<a href="#" class="menu_button" onclick="hide_kylt()">Скрыть культуру</a>-->
-             <a href="#" class="menu_button" onclick="culture_open()">Справочник культур</a>
+             <!--<a href="#" class="menu_button" onclick="showHideKylt()">Скрыть/Показать культ.</a>   -->          
+             <!--<a href="#" id="menu_button_culture_open" class="menu_button" onclick="culture_open()">Справочник культур</a>-->
+             <a href="#" id="menu_button_culture_open" class="menu_button">Справочник культур</a>
              <a href="#" class="menu_button">Карта культур</a>
 
          </div>
+        <!-- Выпадающее меню настройки видимости-->
+         <div id="visiblSettings" class="hiden">
+             <a href="#" class="menu_button" onclick="showHideKylt()">Скрыть/Показать культ.</a>
+             <a href="#" class="menu_button" onclick="showHideCurrent()">Скрыть/Показать токи</a>
+             <a href="#" class="menu_button" onclick="showNamesOfKlapan()">Скрыть/Показать имена</a>
+         </div>
 
  
-         <div id="menu">
-         <!--
-              <div id="konv_menu" class="hiden_menu" title="Меню">
-                  <p><button onclick="start_stop_mex(2)" style="width:150px;height:25px" > Выключить</button></p>
-                  <p><button onclick="start_stop_mex(1)" style="width:150px;height:25px" >Включить</button></p>
-                  <p><button onclick="datchiki()" style="width:150px;height:25px" > Датчики</button></p>
-                  <p><button style="width:150px;height:25px" > Журналы</button></p>
-                  <p><button onclick="start_stop_mex(4)" style="width:150px;height:25px">Сброс аварии</button></p>
-                  <p><button onclick="start_stop_mex(9)" style="width:150px;height:25px">Ремонт</button></p>
-                  <p><button style="width:150px;height:25px" > Настройки</button></p>
-              </div>
-              <div id="klapan_menu" class="hiden_menu" title="Меню">
-                  <p><button onclick="start_stop_mex(2)" style="width:150px;height:25px" >Остановить</button></p>
-                  <p><button onclick="start_stop_mex(1)" style="width:150px;height:25px" ></button></p>
-                  <p><button onclick="start_stop_mex(3)" style="width:150px;height:25px" > </button></p>
-                  <p><button onclick="datchiki()" style="width:150px;height:25px" >Датчики</button></p>
-                  <p><button onclick="start_stop_mex(4)" style="width:150px;height:25px">Сброс аварии</button></p>
-                  <p><button onclick="start_stop_mex(9)" style="width:150px;height:25px">Ремонт</button></p>
-                  <p><button style="width:150px;height:25px" > Настройки</button></p>
-              </div>
-
-              <div id="zadvijka_menu" class="hiden_menu" title="Меню">
-                  <p><button onclick="start_stop_mex(2)" style="width:150px;height:25px" >Остановить</button></p>
-                  <p><button onclick="start_stop_mex(1)" style="width:150px;height:25px" > Закрыть</button></p>
-                  <p><button onclick="start_stop_mex(3)" style="width:150px;height:25px" >Открыть</button></p>
-                  <p><button style="width:150px;height:25px" >Откр./Закр.</button></p>
-                  <p><button onclick="datchiki()" style="width:150px;height:25px" >Датчики</button></p>
-                  <p><button onclick="start_stop_mex(4)" style="width:150px;height:25px">Сброс аварии</button></p>
-                  <p><button onclick="start_stop_mex(9)" style="width:150px;height:25px">Ремонт</button></p>
-                  <p><button style="width:150px;height:25px" >Настройки</button></p>
-              </div>
- -->
-
+         <div id="menu">         
+            <!-- there will be buttons -->
          </div>
         
 
@@ -1706,6 +1682,13 @@
                                        <td><select size="1" name="Flags_dat5_bit3" title="Датчик в норме = 0/1"><option value="0">0</option><option value="1">1</option></select></td>
                                        <td></td>
                                    </tr>
+                                    <tr>
+                                       <td><select size="1" name="Type_dat6_bit0" title="если 1, тогда датчик подключён"><option value="0">0</option><option value="1">1</option></select></td>
+                                       <td><input name="dat6_name" SIZE=10 readonly></td>
+                                       <td><input class="checkable_data_form adres_getable" name="Adr_dat6" SIZE=4 title="Адрес датчика"></td>
+                                       <td><select size="1" name="Flags_dat6_bit3" title="Датчик в норме = 0/1"><option value="0">0</option><option value="1">1</option></select></td>
+                                       <td><input class="checkable_data_form" name="Time_dat6" SIZE=4 title="время фильтрации мс"></td>                                       
+                                   </tr>
                      </table>
                     </div>
 
@@ -2960,14 +2943,32 @@
 
          </div>
 
-         <!--__окно всех маршрутов__-->
-         <!--
-            <div id="oll_route_statuses" class="draggable" ></div>
-            -->
+         <!--Окно всех датчиков-->
+         <div id="datchiki_kontrol" class="hiden_datchiki draggable" style="min-width:250px">
+                 <div id="datchiki_kontrol_header">
+                     <table width="100%" cellspacing="2" cellpadding="1" border="0">
+                                   <tr><td width="30%">Датчики:</td><td id="fool_name_of_device">название</td></tr>
+                     </table>
+                 </div>
+                 <div id="datchiki" style="min-width:100px">
+                     <table style="width: auto">
+                         <tbody id="table_datchiki"></tbody>
+                     </table>
 
+                 </div>
+                 <div id="control" style="min-width:100px">
+                    <table style="width: auto">
+                         <tbody id="table_control"></tbody>
+                     </table>
+                 </div>
+                 <div id="datchiki_kontrol_footer" >
+                     <table width="100%" cellspacing="2" cellpadding="1" border="0">
+                                   <tr><td width="80%">&nbsp</td><td><button onclick="close_datchiki()">Выход</button></td></tr>
 
-         
+                      </table>
 
+                 </div>
+             </div>
 
 
     </div>
@@ -2978,7 +2979,9 @@
         <script src="/static/admin/js/servis_and_archiv_menu.js" defer></script>
         <script src="/static/admin/js/menu_button.js" defer></script>
         <script src="/static/admin/js/Status_and_links.js" defer></script>
-        <script src="/static/admin/js/elevator_revA.js" defer></script>
+       <!-- <script src="/static/admin/js/elevator_revA.js" defer></script>-->
+        <script src="/static/admin/js/Commands.js" defer></script>
+        <script src="/static/admin/js/start.js" defer></script>
         <script src="/static/admin/js/levelbar.js" defer></script>
         <script src="/static/admin/js/current_grafic4.js" defer></script>
         <script src="/static/admin/js/zadvijka_menu.js" defer></script>

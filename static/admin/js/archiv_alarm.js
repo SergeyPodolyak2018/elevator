@@ -39,11 +39,11 @@ function archiv_alarm(){
                                        '</select>';
         		var filter_selector = document.getElementById('archiv_message_filter_button');
         		filter_selector.innerHTML = '<button onclick="archiv_alarm_sort('+number+','+0+','+2+')">Сортировать</button>';
-
+                
         		$('#archiv_message').show();
                 
                  universalTableBuilder('#table_head_rchiv_message','#table_rchiv_message>tbody');
-                
+               
 
 
             },
@@ -157,7 +157,10 @@ function archiv_alarm_sort(number,type_m,selector_or_button){
 }
 
 function archiv_alarm_close(){
-        		$('#archiv_message').hide();
+                
+                document.getElementById('datepicker_message1').value =''; //arase of datepicker input element1
+                document.getElementById('datepicker_message2').value =''; //arase of datepicker input element2            
+        		$('#archiv_message').hide(); //close window
 }
 
 
@@ -238,7 +241,9 @@ function archiv_rout_sort(){
         });
 }
 
-function archiv_rout_close(){
+function archiv_rout_close(){               
+                document.getElementById('datepicker_rout1').value =''; //arase of datepicker input element1
+                document.getElementById('datepicker_rout2').value =''; //arase of datepicker input element2         
         		$('#archiv_rout').hide();
 }
 
@@ -368,6 +373,8 @@ function archiv_device_sort(number){
 }
 
 function archiv_device_close(){
+                document.getElementById('datepicker_device1').value =''; //arase of datepicker input element1
+                document.getElementById('datepicker_device2').value =''; //arase of datepicker input element2 
         		$('#archiv_device').hide();
 }
 

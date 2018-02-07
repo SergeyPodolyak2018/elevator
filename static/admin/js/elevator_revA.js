@@ -407,8 +407,8 @@ function get_kylt_list(){
   function close_datchiki() {
 
     $('#datchiki_kontrol').removeClass('visible_datchiki').addClass('hiden_datchiki');
-    $('#datchiki_kontrol_konteiner').removeClass('datchiki_kontrol_konteiner_show').addClass('datchiki_kontrol_konteiner_hide');
-    $('#datchiki_kontrol_konteiner').hide();
+    //$('#datchiki_kontrol_konteiner').removeClass('datchiki_kontrol_konteiner_show').addClass('datchiki_kontrol_konteiner_hide');
+    //$('#datchiki_kontrol_konteiner').hide();
 
     //закончить циклический запрос
     clearInterval(global_start_function);
@@ -519,14 +519,16 @@ function datchiki(p1,p2,p3,number) {
               div_control.innerHTML = string_temp_c;
 
               //Диалог открытия датчиков
-              $('#datchiki_kontrol_konteiner').removeClass('datchiki_kontrol_konteiner_hide').addClass('datchiki_kontrol_konteiner_show');
-              $('#datchiki_kontrol_konteiner').show();
+             // $('#datchiki_kontrol_konteiner').removeClass('datchiki_kontrol_konteiner_hide').addClass('datchiki_kontrol_konteiner_show');
+             // $('#datchiki_kontrol_konteiner').show();
               $('#datchiki_kontrol').removeClass('hiden_datchiki').addClass('visible_datchiki');
               //$( "#datchiki_kontrol").dialog( "open" );
               var a = $('#control').width();
               var b = $('#datchiki').width();
               var c = a+b+4;
               $('#datchiki_kontrol').width(c);
+              //Очистить предыдущий циклический запрос
+              clearInterval(global_start_function);
               //установить циклический запрос
               //переменная global_start_function должна быть глобальной
                global_start_function = setInterval(function() { dat_status(number) }, 1000);
