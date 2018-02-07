@@ -13854,14 +13854,14 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 			menu: selectmenuId + "-menu"
 		};
 
-		this._drawButton();
+		//this._drawButton();
 		this._drawMenu();
 		this._bindFormResetHandler();
 
 		this._rendered = false;
 		this.menuItems = $();
 	},
-
+/*
 	_drawButton: function() {
 		var icon,
 			that = this,
@@ -13917,7 +13917,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 			}
 		} );
 	},
-
+*/
 	_drawMenu: function() {
 		var that = this;
 

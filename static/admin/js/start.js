@@ -338,6 +338,7 @@ function setEventOnElement(userType){
 
 
 //function open equipment dialog
+/*
 		$( function() {
 		                 $( "#menu" ).dialog({
 		                      autoOpen: false,
@@ -363,7 +364,7 @@ function setEventOnElement(userType){
 
 		     });
 
-
+*/
 
 //отображение даты
      function date() {

@@ -70,7 +70,8 @@ function archiv_alarm_device(){
             }},
             success: function( result ) {
                 
-                $( "#menu").dialog( "close" );
+                //$( "#menu").dialog( "close" );
+                objectMenuManager.hide();
 
             	var  message=JSON.parse(result);
             	
@@ -292,7 +293,8 @@ function archiv_devices(){
 
 //архив событий конкретного устройства
 function archiv_device(){
-     $( "#menu").dialog( "close" );
+     //$( "#menu").dialog( "close" );
+     objectMenuManager.hide();
      var devise_name_complit=$("#Name_devise").text();
      var number = parseInt(devise_name_complit.match(/-*[0-9]+/));
 	 var url_string = '/device_arxiv/?index='+number+'&date_s='+0+'&date_p='+0;

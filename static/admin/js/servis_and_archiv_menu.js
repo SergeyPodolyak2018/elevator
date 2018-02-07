@@ -108,7 +108,9 @@ function showmenu() {
         $('.visible').removeClass('visible').addClass('hiden');
     }
     else{
-    }    
+    } 
+    //$( "#menu").dialog( "close" );
+    objectMenuManager.hide();   
 }
 
 //Выход из страници
