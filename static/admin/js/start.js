@@ -261,14 +261,15 @@ function setEventOnElement(userType){
                                     }
 
                                 $('.'+element_name+'select',svgdom).css({
-                                    'stroke-width': '40px',
-                                    'stroke':'black'
+                                    'stroke-width': '50px',
+                                    'stroke':'#f5ed00'
                                 });
                             }, this), 0)},
                             function () {
                                 setTimeout($.proxy(function( ){
                                     var element_name =($(this).attr('class').split(' ')[1]);
-                                $('.'+element_name+'select',svgdom).css('stroke-width', '5px');
+                                //$('.'+element_name+'select',svgdom).css('stroke-width', '5px');
+                                $('.'+element_name+'select',svgdom).removeAttr("style");
                                 $(title_dsfvasdc).text('');
                                  }, this), 0)}
                         );
@@ -338,6 +339,7 @@ function setEventOnElement(userType){
 
 
 //function open equipment dialog
+/*
 		$( function() {
 		                 $( "#menu" ).dialog({
 		                      autoOpen: false,
@@ -363,7 +365,7 @@ function setEventOnElement(userType){
 
 		     });
 
-
+*/
 
 //отображение даты
      function date() {

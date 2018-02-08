@@ -1,7 +1,8 @@
 //команды для механизмов
     function start_stop_mex(command,p1,p2,EquipIndex) {
         var url_string ='/io_command/?'+escape('UD_DB.EquipCommand')+'='+command+'&'+escape('UD_DB.EquipIndex')+'='+EquipIndex+'&'+escape('UD_DB.Command_P1')+'='+p1+'&'+escape('UD_DB.Command_P2')+'='+p2;
-        $( "#menu").dialog( "close" );
+        //$( "#menu").dialog( "close" );
+        objectMenuManager.hide();
         $.ajax({
             url: url_string,
             data: {},
@@ -25,7 +26,10 @@ function menu_kreator(device_index,device_string_type){
   var temp_string='';
   if(device_string_type!='current' & device_string_type!='kylt'& device_string_type!='analog_dat'){
         if(device_index in menu_header_text){
-        $(".ui-dialog-title").text(menu_header_text[device_index].shortName);
+          $(".ui-dialog-title").text(menu_header_text[device_index].shortName);
+          //new
+          objectMenuManager.setHeader(menu_header_text[device_index].shortName);
+
             $.ajax({
             url: url_string1,
             data: {},
@@ -34,32 +38,43 @@ function menu_kreator(device_index,device_string_type){
 
                   for (let i in menu_struktura){
                         if (menu_struktura[i].enable==0) {
-                          temp_string=temp_string+'<p class="button_menu"><button onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px;height:25px; color:'+menu_struktura[i].color+'" disabled>'+menu_struktura[i].name+'</button></p>'
+                          temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px; color:'+menu_struktura[i].color+'" disabled>'+menu_struktura[i].name+'</button></p>'
                         } else {
-                          temp_string=temp_string+'<p class="button_menu"><button onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px;height:25px; color:'+menu_struktura[i].color+'">'+menu_struktura[i].name+'</button></p>'
+                          temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px; color:'+menu_struktura[i].color+'">'+menu_struktura[i].name+'</button></p>'
                         }
                   }                  
                   let div_menu = document.getElementById('menu');
-                  div_menu.innerHTML = temp_string;
-                  $( "#menu").dialog( "open" );
+                  //div_menu.innerHTML = temp_string;
+                  //$( "#menu").dialog( "open" );
+                  //New
+                  objectMenuManager.insertButtons(temp_string);
+                  objectMenuManager.show();
               }
             });
         }else{
                 add_equipment_open(device_index,element_type_number[device_string_type]);
         }
   }else{
-        $(".ui-dialog-title").text('');        
-        temp_string=temp_string+'<p class="button_menu"><button style="width:150px;height:25px" onclick="settings_equipment_open(0,0,0,'+device_index+','+element_type_number[device_string_type]+')"> Настройки</button></p>';
+        $(".ui-dialog-title").text('');
+        //new
+        objectMenuManager.setHeader('');
+
+        temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" style="width:150px; onclick="settings_equipment_open(0,0,0,'+device_index+','+element_type_number[device_string_type]+')"> Настройки</button></p>';
 
         let div_menu = document.getElementById('menu');
-        div_menu.innerHTML = temp_string;
-        $( "#menu").dialog( "open" );
+        //div_menu.innerHTML = temp_string;
+        //$( "#menu").dialog( "open" );
+        //New
+        objectMenuManager.insertButtons(temp_string);
+        objectMenuManager.show();
   }
 }
 
 //меню контроля датчики и контроль открытие
 function datchiki(p1,p2,p3,number) {
-        $( "#menu").dialog( "close" );        
+        //$( "#menu").dialog( "close" ); 
+        objectMenuManager.hide();
+
         var url_string2 = '/dat/?index='+number;
 
         $('#fool_name_of_device').text(menu_header_text[number].shortName);
@@ -190,7 +205,8 @@ function hide_icons(){
 }
 //установка культуры
 function set_kylt(command,p1,p2,device_index){
-    $( "#menu").dialog( "close" );
+    //$( "#menu").dialog( "close" );
+    objectMenuManager.hide();
     $('#kylt_set_confirmation_window').show();
     document.getElementById('Kylt_device_Index').value =device_index;
     document.getElementById('kylt_set_confirmation_list').innerHTML = global_object_oll_kylt_from_server;
@@ -207,7 +223,8 @@ function kylt_set_close(){
 //позиция поворотной трубы
 function set_position_pt(command,p1,p2,device_index){
     var temp_string='';
-    $( "#menu").dialog("close");
+   // $( "#menu").dialog("close");
+    objectMenuManager.hide();
     $('#position_pt_confirmation_window').show();
     for(let i=1;i<=10;i++){
         temp_string=temp_string+'<td><button onclick="start_stop_mex('+(20+i)+',0,0,'+device_index+')">'+i+'</button></td>'
@@ -240,7 +257,8 @@ function bell_command(command){
 function oll_mex_confirm(command,p2,p3,device_index,type){
     var temp_string='';
     var temp_string2='';
-    $( "#menu").dialog("close");
+    //$( "#menu").dialog("close");
+    objectMenuManager.hide();
 
     var confirm_header_name_tr=document.getElementById('confirmation_header_name');
     console.log(confirm_header_name_tr);

@@ -37,27 +37,27 @@ function change(oll_mex_status) {
 
                       if (status==1){
                         $(element).css('fill', '#FF0000');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element1).css('fill', '#FF0000');
                       }
 
                       if (status==2){
                         $(element).css('fill', '#008BE9');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element1).css('fill', '#008BE9');
                       }
 
                       if (status==3){
                         $(element).css('fill', '#00FFFF');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element1).css('fill', '#00FFFF');
                       }
 
                       if (status==4){
                         $(element).css('fill', '#FAC814');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element1).css('fill', '#FAC814');
                       }
 
                       if (status==5){
                         $(element).css('fill', '#00FF00');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element1).css('fill', '#00FF00');
                       }
                       if (status==6){
                         $(element).css('fill', '#00FF00');
@@ -170,8 +170,10 @@ function change(oll_mex_status) {
                       if (element!=null){
 
                       if (status==0){
-                        $(element).css('fill', '#C5C6C6');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element).removeAttr("style");
+                        $(element1).removeAttr("style");
+                        //$(element).css('fill', '#C5C6C6');
+                        //$(element1).css('fill', '#C5C6C6');
                       }
 
                       if (status==1){
@@ -239,10 +241,14 @@ function change(oll_mex_status) {
                       if (element!=null){
 
                       if (status==0){
-                        $(element).css('fill', '#C5C6C6');
-                        $(element1).css('fill', '#C5C6C6');
-                        $(element2).css('fill', '#C5C6C6');
-                        $(element3).css('fill', '#C5C6C6');
+                        $(element).removeAttr("style");
+                        $(element1).removeAttr("style");
+                        $(element2).removeAttr("style");
+                        $(element3).removeAttr("style");
+                        //$(element).css('fill', '#C5C6C6');
+                        //$(element1).css('fill', '#C5C6C6');
+                        //$(element2).css('fill', '#C5C6C6');
+                        //$(element3).css('fill', '#C5C6C6');
                       }
 
                       if (status==1){
@@ -321,8 +327,10 @@ function change(oll_mex_status) {
                       if (element!=null){
 
                       if (status==0){
-                        $(element).css('fill', '#C5C6C6');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element).removeAttr("style");
+                        $(element1).removeAttr("style");
+                       // $(element).css('fill', '#C5C6C6');
+                        //$(element1).css('fill', '#C5C6C6');
                       }
 
                       if (status==1){
@@ -398,7 +406,8 @@ function change(oll_mex_status) {
                         $(element).css('fill', '#00FFFF');//маршруто
                       }
                       if (status==5){
-                        $(element).css('fill', '#E5E5E6'); //закрыто
+                        //$(element).css('fill', '#E5E5E6'); //закрыто
+                        $(element).removeAttr("style");//закрыто
                       }
 
                       if (status==6){
@@ -434,7 +443,8 @@ function change(oll_mex_status) {
                         $(element).css('fill', '#00FFFF');//маршруто
                       }
                       if (status==5){
-                        $(element).css('fill', '#E5E5E6'); //закрыто
+                        //$(element).css('fill', '#E5E5E6'); //закрыто
+                        $(element).removeAttr("style");//закрыто
                       }
 
                       if (status==6){
@@ -475,7 +485,8 @@ function change(oll_mex_status) {
                               break; 
                           
                           default:
-                              $(element).css('fill', '#C5C6C6');
+                              //$(element).css('fill', '#C5C6C6');
+                              $(element).removeAttr("style");
                               break; 
                         }
                       }
@@ -490,8 +501,10 @@ function change(oll_mex_status) {
 
 
                       if (status==0){
-                        $(element).css('fill', '#C5C6C6');
-                        $(element1).css('fill', '#C5C6C6');
+                        $(element).removeAttr("style");
+                        $(element1).removeAttr("style");
+                        //$(element).css('fill', '#C5C6C6');
+                        //$(element1).css('fill', '#C5C6C6');
                       }
                       if (status==1){
                         $(element).css('fill', '#FF0000');
@@ -828,7 +841,8 @@ function change(oll_mex_status) {
                       return true;
                      }
                     if (temp_arrey.some(checker6)) {
-                      this.style.stroke='#000000';//черный
+                      //this.style.stroke='#000000';//черный
+                      this.style.stroke='#ffffff';//белый
                       return true;
                       }
                     if (temp_arrey.some(checker7)) {
@@ -837,6 +851,8 @@ function change(oll_mex_status) {
                       }
                     //this.style.stroke='#c0c0c0';//серый
                     this.style.stroke='#7b7b7b';//серый
+                    //$(element).removeAttr("style");
+
                     //this.style.stroke='#000000';//черный
                 })
     }
@@ -851,7 +867,11 @@ function analog_status(analog){
     for (let i in analog){
         
         let tempElement=$(SVG.getElementsByClassName(''+i));
-        
+        if (analog[i].value=='0 A' || analog[i].value=='*'){
+          $(tempElement).removeAttr("style");
+        }else{
+          $(tempElement).css('fill','black');
+        }
         $(tempElement).text(''+analog[i].value);
          
          $(SVG.getElementsByClassName(''+i+'fon')).css('fill',''+analog[i].status);
@@ -889,7 +909,8 @@ function color_start_end_route(index,status){
                     if ((status & mask_start)>0 & (status & mask_end)>0){
                         element[0].style.fill='#FFFF00';//желтый
                     }else{
-                        element[0].style.fill='#dadada';//белый
+                        //element[0].style.fill='#dadada';//белый
+                        element[0].style.fill='none';//белый
                     }
                 }
             }

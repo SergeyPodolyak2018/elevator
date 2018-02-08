@@ -70,7 +70,8 @@ function archiv_alarm_device(){
             }},
             success: function( result ) {
                 
-                $( "#menu").dialog( "close" );
+                //$( "#menu").dialog( "close" );
+                objectMenuManager.hide();
 
             	var  message=JSON.parse(result);
             	
@@ -292,7 +293,8 @@ function archiv_devices(){
 
 //архив событий конкретного устройства
 function archiv_device(){
-     $( "#menu").dialog( "close" );
+     //$( "#menu").dialog( "close" );
+     objectMenuManager.hide();
      var devise_name_complit=$("#Name_devise").text();
      var number = parseInt(devise_name_complit.match(/-*[0-9]+/));
 	 var url_string = '/device_arxiv/?index='+number+'&date_s='+0+'&date_p='+0;
@@ -422,9 +424,11 @@ function alarm(){
             	
             	temp_string='';
             	for (var i  in message) {
-            		//temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].id+'</td><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<button onclick="alarm_close()">Квитировать</button>'+'</td></tr>'
+            		//temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].id+'</td><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<button onclick="alarm_close()">Квитировать</button>'+'</td></tr><a href="#" class="printButton" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')"><img src="/static/admin/img/confirm.bmp"></a>'
             	    if (i!='quantity'){
-            	        temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<button onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')">Квитировать</button>'+'</td></tr>'
+            	        temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<button class="modal_box_btn" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')">Квитировать</button>'+'</td></tr>'
+                        //temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<a href="#" class="printButton" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')"><img src="/static/admin/img/confirm.png"></a>'+'</td></tr>'
+
                     }
             	}
             	var div_menu = document.getElementById('table_alarm_message');
@@ -573,7 +577,9 @@ function table_alarm_message_rebild(){
                     for (var i  in message) {
 
                         if (i!='quantity'){
-                            temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<button onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')">Квитировать</button>'+'</td></tr>'
+                         temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<button class="modal_box_btn" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')">Квитировать</button>'+'</td></tr>'
+                         //temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<a href="#" class="printButton" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')"><img src="/static/admin/img/confirm.png"></a>'+'</td></tr>'
+                       
                         }
                     }
                     var div_menu = document.getElementById('table_alarm_message');
