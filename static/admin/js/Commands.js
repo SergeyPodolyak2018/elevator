@@ -19,7 +19,7 @@
     }
 
  //создатель менюшек для различных механизмов
-function menu_kreator(device_index,device_string_type){
+function menu_kreator(device_index,device_string_type,posX,posY){
 
   var url_string1='/menu/?index='+device_index;
   var device_type;
@@ -48,17 +48,26 @@ function menu_kreator(device_index,device_string_type){
                   //$( "#menu").dialog( "open" );
                   //New
                   objectMenuManager.insertButtons(temp_string);
-                  objectMenuManager.show();
+                  objectMenuManager.show(posX,posY);
               }
             });
         }else{
                 add_equipment_open(device_index,element_type_number[device_string_type]);
         }
-  }else{
-        $(".ui-dialog-title").text('');
-        //new
-        objectMenuManager.setHeader('');
-
+  }else{          
+          if(device_string_type=='current'){
+            objectMenuManager.setHeader('Ток №'+device_index);
+          }else{
+            if(device_string_type=='kylt'){
+              objectMenuManager.setHeader('Культура №'+device_index);
+            }else{
+              if(device_string_type=='analog_dat'){
+                objectMenuManager.setHeader('Аналоговый д. №'+device_index);
+              }
+            }
+          }          
+        }
+        //objectMenuManager.setHeader('');
         temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" style="width:150px; onclick="settings_equipment_open(0,0,0,'+device_index+','+element_type_number[device_string_type]+')"> Настройки</button></p>';
 
         let div_menu = document.getElementById('menu');
@@ -66,9 +75,9 @@ function menu_kreator(device_index,device_string_type){
         //$( "#menu").dialog( "open" );
         //New
         objectMenuManager.insertButtons(temp_string);
-        objectMenuManager.show();
-  }
+        objectMenuManager.show(posX,posY);
 }
+
 
 //меню контроля датчики и контроль открытие
 function datchiki(p1,p2,p3,number) {

@@ -5,8 +5,11 @@ function createDivForeManagmentDevices(){
 
     createElements();
 
-    this.show=function(){
+    this.show=function(left,top){
         if (divManageElement.style.display!='block') {
+                
+                divManageElement.style.left=''+left+'px';
+                divManageElement.style.top=''+top+'px';
                 divManageElement.style.display='block';
             }   
     };
@@ -28,9 +31,9 @@ function createDivForeManagmentDevices(){
         //divManageElement.style.cssText=styletext;
         divManageElement.classList.add(styletext);
     };
-    this.setHeaderStyle=function(styletext){
-        //headerText.style.cssText=styletext;
-        headerText.classList.add(styletext);
+    this.setHeaderStyle=function(classtext,styletext){
+        headerText.style.cssText=styletext;
+        headerText.classList.add(classtext);
     };
 
 
@@ -42,7 +45,6 @@ function createDivForeManagmentDevices(){
         divManageElement.appendChild(bodyWithButtons);
         divManageElement.classList.add('draggable');
         divManageElement.setAttribute('id','windowManageDevice');
-
         document.getElementById("container").appendChild(divManageElement);
     }
 	      

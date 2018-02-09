@@ -285,13 +285,13 @@ function setEventOnElement(userType){
                         //Диалог запуска устройства
                         if (userType==1 || userType==2){
 	                        $(svgdom.getElementsByClassName(""+i)).on('contextmenu', function(e){
-	                            console.log(($(this).attr('class').split(' ')))
+	                        	console.log(($(this).attr('class').split(' ')));
 	                            var element_name =($(this).attr('class').split(' ')[1]);
 	                            var temp_string_name=element_name.match(/-*[a-z]+/i);
 	                            var elementIndex=parseInt(element_name.match(/-*[0-9]+/));
 	                            $("#Name_devise").text(elementIndex);
 	                            $("#footer_help").text(menu_header_text[elementIndex].longName);
-	                            menu_kreator(parseInt(element_name.match(/-*[0-9]+/)),temp_string_name);
+	                            menu_kreator(parseInt(element_name.match(/-*[0-9]+/)),temp_string_name,e.clientX,e.clientY);
 	                            return false;
 	                        });
                     	}
@@ -302,7 +302,7 @@ function setEventOnElement(userType){
 	                            
 	                            var temp_string_name=element_name[0].match(/[a-z]{1,}[_]{0,}[a-z]{0,}/);
 	                            console.log(temp_string_name);
-	                            menu_kreator(parseInt(element_name[1].match(/-*[0-9]+/)),temp_string_name);
+	                            menu_kreator(parseInt(element_name[1].match(/-*[0-9]+/)),temp_string_name,e.clientX,e.clientY);
 	                            return false;
 	                        });
                         }

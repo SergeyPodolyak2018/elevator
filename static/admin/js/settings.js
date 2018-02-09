@@ -180,8 +180,8 @@ function settings_equipment_open(p1,p2,p3,index,type){
         console.log(p2);
         console.log(index);
         console.log(type);
-        $("#menu").dialog("close");
-
+        //$("#menu").dialog("close");
+        objectMenuManager.hide();
         switch(type){
             case 1:
                 device_type='noriya';

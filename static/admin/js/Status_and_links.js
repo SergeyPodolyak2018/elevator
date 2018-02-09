@@ -755,13 +755,17 @@ function change(oll_mex_status) {
                         break;
                 }
                  switch(oll_mex_status.plc){
-                    case 0:$("#footer_plc_status").css('background-color','grey');
+                    case 0://$("#footer_plc_status").css('background-color','grey');
+                          document.getElementById('footer_plc_status').removeAttribute("style");
                         break;
-                    case 1 :$("#footer_plc_status").css('background-color','green');
+                    case 1 ://$("#footer_plc_status").css('background-color','#00ff00');
+                            document.getElementById('footer_plc_status').style.cssText='background-color:#00ff00; color:black';
                         break;
-                    case 2 :$("#footer_plc_status").css('background-color','yellow');
+                    case 2 ://$("#footer_plc_status").css('background-color','yellow');
+                            document.getElementById('footer_plc_status').style.cssText='background-color:yellow; color:black';
                         break;
-                    case 3 :$("#footer_plc_status").css('background-color','red');
+                    case 3 ://$("#footer_plc_status").css('background-color','red');
+                            document.getElementById('footer_plc_status').style.cssText='background-color:red; color:black';
                         break;
                     default:
                         //$("#footer_plc_status").css('background-color','grey');
@@ -864,17 +868,16 @@ function change(oll_mex_status) {
 function analog_status(analog){
     var SVG = document.getElementById("nor").getSVGDocument();
     
-    for (let i in analog){
-        
-        let tempElement=$(SVG.getElementsByClassName(''+i));
-        if (analog[i].value=='0 A' || analog[i].value=='*'){
-          $(tempElement).removeAttr("style");
-        }else{
-          $(tempElement).css('fill','black');
-        }
-        $(tempElement).text(''+analog[i].value);
+    for (let i in analog){          
+          let tempElement=$(SVG.getElementsByClassName(''+i));
+          if (analog[i].value=='0 А' || analog[i].value=='*'){
+            $(tempElement).removeAttr("style");
+          }else{
+            $(tempElement).css('fill','black');
+          }
+          $(tempElement).text(''+analog[i].value);
          
-         $(SVG.getElementsByClassName(''+i+'fon')).css('fill',''+analog[i].status);
+          $(SVG.getElementsByClassName(''+i+'fon')).css('fill',''+analog[i].status);
     }
 
 }
@@ -910,7 +913,8 @@ function color_start_end_route(index,status){
                         element[0].style.fill='#FFFF00';//желтый
                     }else{
                         //element[0].style.fill='#dadada';//белый
-                        element[0].style.fill='none';//белый
+                        //element[0].style.fill='none';//белый
+                        element[0].removeAttribute("style");
                     }
                 }
             }
