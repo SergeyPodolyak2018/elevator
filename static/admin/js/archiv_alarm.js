@@ -38,7 +38,8 @@ function archiv_alarm(){
                                            '<option value="5" >Лог</option>'+
                                        '</select>';
         		var filter_selector = document.getElementById('archiv_message_filter_button');
-        		filter_selector.innerHTML = '<button onclick="archiv_alarm_sort('+number+','+0+','+2+')">Сортировать</button>';
+        		filter_selector.innerHTML = '<button class="modal_box_btn" style="float:right"' +
+                    ' onclick="archiv_alarm_sort('+number+','+0+','+2+')">Сортировать</button>';
                 
         		$('#archiv_message').show();
                 
@@ -94,7 +95,7 @@ function archiv_alarm_device(){
                                            '<option value="5" >Лог</option>'+
                                        '</select>';
         		var filter_selector = document.getElementById('archiv_message_filter_button');
-        		filter_selector.innerHTML = '<button onclick="archiv_alarm_sort('+number+','+0+','+2+')">Сортировать</button>';
+        		filter_selector.innerHTML = '<button class="modal_box_btn" onclick="archiv_alarm_sort('+number+','+0+','+2+')">Сортировать</button>';
 
         		$('#archiv_message').show();
                  universalTableBuilder('#table_head_rchiv_message','#table_rchiv_message>tbody');
@@ -224,7 +225,8 @@ function archiv_rout_sort(){
             	temp_string='';
             	for (var i  in message) {
             		//temp_string=temp_string+'<tr><td>'+message[i].id+'</td><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].source+'</td><td>'+message[i].receive+'</td><td>'+message[i].kylt+'</td><td>'+message[i].status+'</td></tr>'
-            	    temp_string=temp_string+'<tr><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].source+'</td><td>'+message[i].receive+'</td><td>'+message[i].kylt+'</td><td>'+message[i].status+'</td></tr>'
+            	    temp_string=temp_string+'<tr><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td' +
+                        ' style="min-width: 160px;">'+message[i].source+'</td><td style="min-width: 160px;">'+message[i].receive+'</td><td style="min-width: 70px;">'+message[i].kylt+'</td><td>'+message[i].status+'</td></tr>'
 
             	}
             	var div_menu = document.getElementById('table_rchiv_rout');
@@ -276,7 +278,7 @@ function archiv_devices(){
             	var div_menu = document.getElementById('table_rchiv_device');
         		div_menu.innerHTML = temp_string;
         		var filter_button = document.getElementById('archiv_device_filter_button');
-        		filter_button.innerHTML = '<button onclick="archiv_device_sort(0)">Сортировать</button>';
+        		filter_button.innerHTML = '<button class="modal_box_btn" onclick="archiv_device_sort(0)">Сортировать</button>';
 
         		$('#archiv_device').show();
                 universalTableBuilder('#table_head_rchiv_device','#table_rchiv_device>tbody');
@@ -321,7 +323,7 @@ function archiv_device(){
             	var div_menu = document.getElementById('table_rchiv_device');
         		div_menu.innerHTML = temp_string;
         		var filter_button = document.getElementById('archiv_device_filter_button');
-        		filter_button.innerHTML = '<button onclick="archiv_device_sort('+number+')">Сортировать</button>';
+        		filter_button.innerHTML = '<button class="modal_box_btn" onclick="archiv_device_sort('+number+')">Сортировать</button>';
 
         		$('#archiv_device').show();
                 universalTableBuilder('#table_head_rchiv_device','#table_rchiv_device>tbody');
@@ -426,7 +428,7 @@ function alarm(){
             	for (var i  in message) {
             		//temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].id+'</td><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<button onclick="alarm_close()">Квитировать</button>'+'</td></tr><a href="#" class="printButton" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')"><img src="/static/admin/img/confirm.bmp"></a>'
             	    if (i!='quantity'){
-            	        temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<button class="modal_box_btn" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')">Квитировать</button>'+'</td></tr>'
+            	        temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td style="text-align:center;">'+message[i].ack+'</td><td>'+'<button style="padding-left: 5px;padding-right: 5px;padding-top: 1px;padding-bottom: 1px;margin-bottom: 5px;" class="modal_box_btn" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')">Квитировать</button>'+'</td></tr>'
                         //temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<a href="#" class="printButton" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')"><img src="/static/admin/img/confirm.png"></a>'+'</td></tr>'
 
                     }
@@ -577,7 +579,7 @@ function table_alarm_message_rebild(){
                     for (var i  in message) {
 
                         if (i!='quantity'){
-                         temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<button class="modal_box_btn" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')">Квитировать</button>'+'</td></tr>'
+                         temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td style="text-align:center;">'+message[i].ack+'</td><td>'+'<button style="padding-left: 5px;padding-right: 5px;padding-top: 1px;padding-bottom: 1px;margin-bottom: 5px;" class="modal_box_btn" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')">Квитировать</button>'+'</td></tr>'
                          //temp_string=temp_string+'<tr style="background-color:'+message[i].color+'"><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].device+'</td><td>'+message[i].text+'</td><td>'+message[i].ack+'</td><td>'+'<a href="#" class="printButton" onclick="alarm_confirmation(this,'+message[i].id+','+message[i].alarm+','+message[i].eqindex+')"><img src="/static/admin/img/confirm.png"></a>'+'</td></tr>'
                        
                         }

@@ -5,9 +5,11 @@ function createDivForeManagmentDevices(){
 
     createElements();
 
-    this.show=function(left,top){
+   this.show=function(left,top){
         if (divManageElement.style.display!='block') {
-                
+                if(top>600){
+                    top=600;                    
+                }                
                 divManageElement.style.left=''+left+'px';
                 divManageElement.style.top=''+top+'px';
                 divManageElement.style.display='block';
@@ -31,9 +33,9 @@ function createDivForeManagmentDevices(){
         //divManageElement.style.cssText=styletext;
         divManageElement.classList.add(styletext);
     };
-    this.setHeaderStyle=function(classtext,styletext){
+    this.setHeaderStyle=function(classText,styletext){
         headerText.style.cssText=styletext;
-        headerText.classList.add(classtext);
+        headerText.classList.add(classText);
     };
 
 
@@ -45,6 +47,7 @@ function createDivForeManagmentDevices(){
         divManageElement.appendChild(bodyWithButtons);
         divManageElement.classList.add('draggable');
         divManageElement.setAttribute('id','windowManageDevice');
+
         document.getElementById("container").appendChild(divManageElement);
     }
 	      
@@ -52,7 +55,7 @@ function createDivForeManagmentDevices(){
 
 var objectMenuManager= new createDivForeManagmentDevices();
 objectMenuManager.setMainStyle('modal_box');
-objectMenuManager.setHeaderStyle('modal_box_header');
+objectMenuManager.setHeaderStyle('modal_box_header','padding-top:10px;padding-bottom:10px;padding-left:15px!important;height:15px; width:auto;color:#ffa200;');
 
 
 

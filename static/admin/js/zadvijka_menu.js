@@ -53,8 +53,8 @@ function zadvijka_chek_command_rezult(index){
                         $('#zadvijka_time_duration').val(zadvijka_status.zadv_time_duration);
 
                         zadvijka_menu_open();
-                        $( "#menu").dialog( "close" );
-
+                        /*$( "#menu").dialog( "close" );*/
+                        objectMenuManager.hide();
                         start_ask_zadvijka= setInterval(function() { get_zadvijka_state(index) }, 1000);
 
                     },
@@ -244,19 +244,23 @@ function get_zadvijka_state(index){
 
                          if( zadvijka_status.enable_calibrate==0){
                             $('#zadvijka_kontrol_menu_button_calibrate').css( 'pointer-events', 'none' );
-                            $('#zadvijka_kontrol_menu_button_calibrate').css('backgroundColor','rgb(231,231,231)');
+                            $('#zadvijka_kontrol_menu_button_calibrate').css('backgroundColor','rgb(14,14,14)');
+                            $('#zadvijka_kontrol_menu_button_calibrate').css( 'color', 'rgb(231,231,231)' );
                          }else{
                                 if(zadvijka_status.enable_calibrate==1){
                                 $('#zadvijka_kontrol_menu_button_calibrate').css( 'pointer-events', 'stroke' );
-                                $('#zadvijka_kontrol_menu_button_calibrate').css('backgroundColor','rgb(231,231,231)');
+                                $('#zadvijka_kontrol_menu_button_calibrate').css('backgroundColor','rgb(14,14,14)');
+                            $('#zadvijka_kontrol_menu_button_calibrate').css( 'color', 'rgb(231,231,231)' );
                                 }else{
                                         if(zadvijka_status.enable_calibrate==2){
                                         $('#zadvijka_kontrol_menu_button_calibrate').css( 'pointer-events', 'none' );
                                         $('#zadvijka_kontrol_menu_button_calibrate').css('backgroundColor','#00FF00');
+                                        $('#zadvijka_kontrol_menu_button_calibrate').css( 'color', 'black' );
                                         }else{
                                                 if(zadvijka_status.enable_calibrate==3){
                                                 $('#zadvijka_kontrol_menu_button_calibrate').css('backgroundColor','#00FF00');
                                                 $('#zadvijka_kontrol_menu_button_calibrate').css( 'pointer-events', 'stroke' );
+                                                $('#zadvijka_kontrol_menu_button_calibrate').css( 'color', 'black' );
                                                 }
 
                                         }
@@ -282,16 +286,20 @@ function get_zadvijka_state(index){
                         if(zadvijka_status.c0.status==0){
                             $('#zadvijka_kontrol_menu_content_state_control1').css('backgroundColor','#C5C6C6');
                             $('#zadvijka_kontrol_menu_content_state_control1').text(zadvijka_status.c0.name);
+                            $('#zadvijka_kontrol_menu_content_state_control1').css('color', 'black');
                         }else{
                             $('#zadvijka_kontrol_menu_content_state_control1').css('backgroundColor','#00FF00');
                             $('#zadvijka_kontrol_menu_content_state_control1').text(zadvijka_status.c0.name);
+                            $('#zadvijka_kontrol_menu_content_state_control1').css('color', 'black');
                         }
                         if(zadvijka_status.c2.status==0){
                             $('#zadvijka_kontrol_menu_content_state_control2').css('backgroundColor','#C5C6C6');
                             $('#zadvijka_kontrol_menu_content_state_control2').text(zadvijka_status.c2.name);
+                            $('#zadvijka_kontrol_menu_content_state_control2').css('color', 'black');
                         }else{
                             $('#zadvijka_kontrol_menu_content_state_control2').css('backgroundColor','#00FF00');
                             $('#zadvijka_kontrol_menu_content_state_control2').text(zadvijka_status.c2.name);
+                            $('#zadvijka_kontrol_menu_content_state_control2').css('color', 'black');
                         }
 
 

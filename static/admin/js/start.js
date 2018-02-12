@@ -108,7 +108,7 @@ $(window).load(function () {
         $( "#datepicker_device1" ).datepicker({dateFormat: "yy.mm.dd"});
         $( "#datepicker_device2" ).datepicker({dateFormat: "yy.mm.dd"});
         $( "#datepicker_current").datepicker({dateFormat: "yy.mm.dd"});
-        $( "#timepicker_current").timepicker({ 'timeFormat': 'H:i:s' });
+        $( "#timepicker_current").timepicker({timeFormat: 'H:i:s'});
         /////////////////////////////////////////////////////////////////////
 
 
@@ -176,7 +176,7 @@ $(window).load(function () {
           get_kylt_list();
 
         //Inicialization prevent defoult on some elements
-          inicializePreventDefoult();
+         // inicializePreventDefoult();
 
         //Asck user status and inicialithe elements
 		asckerStatusOfUser();
@@ -285,7 +285,7 @@ function setEventOnElement(userType){
                         //Диалог запуска устройства
                         if (userType==1 || userType==2){
 	                        $(svgdom.getElementsByClassName(""+i)).on('contextmenu', function(e){
-	                        	console.log(($(this).attr('class').split(' ')));
+	                            console.log(($(this).attr('class').split(' ')))
 	                            var element_name =($(this).attr('class').split(' ')[1]);
 	                            var temp_string_name=element_name.match(/-*[a-z]+/i);
 	                            var elementIndex=parseInt(element_name.match(/-*[0-9]+/));

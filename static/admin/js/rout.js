@@ -161,7 +161,7 @@ function send_rout_data(){
 
             	} else {
             		$('#alarm_rout_content').text(route_variant_temp.message);
-	            	var alarm_rout_footer_button_temp = '<tr><td width="99%" align="center"><button onclick="close_alarm_rout()">Ок</button></td></tr>';
+	            	var alarm_rout_footer_button_temp = '<tr><td width="99%" align="center"><button class="modal_box_btn" onclick="close_alarm_rout(event)">Ок</button></td></tr>';
 	            	$('#alarm_rout_footer_button').html(alarm_rout_footer_button_temp);
 	            	$('#alarm_rout').show();
             	}
@@ -229,7 +229,9 @@ function show_rout_variant_window(json_from_server){
 //показать конкретный вариант маршрута
 function show_rout_variant(i,element){
     $('.button_rout').css('background','');
+    $('.button_rout').css('color','#efcd1f');
     $(element).css('background','#00ff00');
+    $(element).css('color','black');
 	var url_string = '/route/?source='+0+'&receive='+0+'&command='+2+'&index='+i+'&kylt='+0;
         $.ajax({
             url: url_string,
@@ -290,7 +292,7 @@ function start_chek_variant(){
                 }
             	if (rout_source_receiver.status ==4) {	
                     $('#alarm_rout_content').html(rout_source_receiver.message);
-	            	var alarm_rout_footer_button_temp = '<tr><td width="99%" align="center"><button onclick="close_alarm_rout()">Ок</button></td></tr>';
+	            	var alarm_rout_footer_button_temp = '<tr><td width="99%" align="center"><button class="modal_box_btn" onclick="close_alarm_rout(event)">Ок</button></td></tr>';
 	            	$('#alarm_rout_footer_button').html(alarm_rout_footer_button_temp);
 	            	$('#alarm_rout').show();
             	}
@@ -316,7 +318,10 @@ function confirm_mixing_kylt(){
 
 
 //выйти из проверки вариантов
-function exit_rout_variant(){
+function exit_rout_variant(e){
+    console.log(e);
+    e.preventDefault();
+    e.stopPropagation();
 	var url_string = '/route/?source='+0+'&receive='+0+'&command='+4+'&index='+0+'&kylt='+0;
         $.ajax({
             url: url_string,
@@ -340,18 +345,21 @@ function exit_rout_variant(){
         });
         //hide_source_receiver();
 
-
+        
 }
 
 //запуск конкретного варианта
-function start_rout_variant(){
+function start_rout_variant(e){
+    console.log(e);
+    e.preventDefault();
+    e.stopPropagation();
 	var url_string = '/route/?source='+0+'&receive='+0+'&command='+5+'&index='+0+'&kylt='+0;
         $.ajax({
             url: url_string,
             data: {},
             timeout:3000,
             statusCode:{404:function(){alert('Функция не реализована');
-            hide_source_receiver();
+                hide_source_receiver();
             }},
             success: function( result ) {
             	$('#rout').hide();
@@ -360,15 +368,16 @@ function start_rout_variant(){
                 $('#confirm_mixin_kylt_rout').hide();
             },
             error: function (jqXHR, exception) {
-            console.log(exception);
-            alert('Сервер не отвечает');
-            hide_source_receiver();
+                console.log(exception);
+                alert('Сервер не отвечает');
+                hide_source_receiver();
             }
         });
         //hide_source_receiver();
 
 
 }
+
 //подтверждние остановки маршрута
 function stop_rout_variant_confirm(source_index){
 	var svgobject = document.getElementById('nor');
@@ -376,7 +385,12 @@ function stop_rout_variant_confirm(source_index){
 	 $(svgdom.getElementsByClassName("iconsource"+source_index)).show();
 	 $(svgdom.getElementsByClassName("source")).off();
 
-	$('#stop_rout_confirmation_footer_button').html('<tr><td width="33%"><button onclick="rebild_rout_variant('+source_index+')">Перестроить</button></td><td width="33%"><button onclick="stop_rout_variant('+source_index+')">Остановить</button></td><td width="30%"><button onclick="exit_stop_rout_variant()">Отмена</button></td></tr>')
+	$('#stop_rout_confirmation_footer_button').html('<tr><td width="33%"><button class="modal_box_btn"' +
+        ' style="width: 120px;" onclick="rebild_rout_variant('+source_index+')">Перестроить</button></td><td' +
+        ' width="33%"><button' +
+        ' class="modal_box_btn" style="width: 120px;" onclick="stop_rout_variant('+source_index+')">Остановить</button></td><td' +
+        ' width="30%"><button class="modal_box_btn" style="width: 120px;"' +
+        ' onclick="exit_stop_rout_variant()">Отмена</button></td></tr>')
 	$('#stop_rout_confirmation').show();
 
 }
@@ -402,16 +416,16 @@ function stop_rout_variant(source_index){
             data: {},
             timeout:3000,
             statusCode:{404:function(){alert('Функция не реализована');
-            hide_source_receiver();
+                hide_source_receiver();
             }},
             success: function( result ) {
             	$('#stop_rout_confirmation').hide();
             	hide_source_receiver();
             },
             error: function (jqXHR, exception) {
-            console.log(exception);
-            alert('Сервер не отвечает');
-            hide_source_receiver();
+                console.log(exception);
+                alert('Сервер не отвечает');
+                hide_source_receiver();
             }
         });
         //hide_source_receiver();
@@ -468,8 +482,8 @@ function exit_restart(source_index){
 	$('#restart_rout_confirmation').hide();
 }
 
-function close_alarm_rout(){
-	exit_rout_variant();
+function close_alarm_rout(e){
+	exit_rout_variant(e);
 
 	$('#alarm_rout').hide();
 }

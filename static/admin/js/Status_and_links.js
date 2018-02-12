@@ -869,6 +869,7 @@ function analog_status(analog){
     var SVG = document.getElementById("nor").getSVGDocument();
     
     for (let i in analog){          
+
           let tempElement=$(SVG.getElementsByClassName(''+i));
           if (analog[i].value=='0 А' || analog[i].value=='*'){
             $(tempElement).removeAttr("style");
@@ -881,7 +882,6 @@ function analog_status(analog){
     }
 
 }
-
 function kylt_status(kylt){
     var SVG = document.getElementById("nor").getSVGDocument();
     for (let i in kylt){

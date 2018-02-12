@@ -38,9 +38,11 @@ function menu_kreator(device_index,device_string_type,posX,posY){
 
                   for (let i in menu_struktura){
                         if (menu_struktura[i].enable==0) {
-                          temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px; color:'+menu_struktura[i].color+'" disabled>'+menu_struktura[i].name+'</button></p>'
+                          temp_string=temp_string+'<p class="button_menu"><button ' +
+                              ' class="modal_box_btn"' +
+                              ' onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px;margin:0;width:150px; color:'+menu_struktura[i].color+'!important;" disabled>'+menu_struktura[i].name+'</button></p>'
                         } else {
-                          temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px; color:'+menu_struktura[i].color+'">'+menu_struktura[i].name+'</button></p>'
+                          temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px;margin:0;width:150px; color:'+menu_struktura[i].color+'!important">'+menu_struktura[i].name+'</button></p>'
                         }
                   }                  
                   let div_menu = document.getElementById('menu');
@@ -54,29 +56,25 @@ function menu_kreator(device_index,device_string_type,posX,posY){
         }else{
                 add_equipment_open(device_index,element_type_number[device_string_type]);
         }
-  }else{          
-          if(device_string_type=='current'){
+  }else{
+        if(device_string_type=='current'){
             objectMenuManager.setHeader('Ток №'+device_index);
           }else{
             if(device_string_type=='kylt'){
               objectMenuManager.setHeader('Культура №'+device_index);
             }else{
               if(device_string_type=='analog_dat'){
-                objectMenuManager.setHeader('Аналоговый д. №'+device_index);
+                objectMenuManager.setHeader('Аналог. датчик №'+device_index);
               }
             }
-          }          
+          }
+          temp_string=temp_string+'<p class="button_menu"><button style="margin:0;width:150px;" class="modal_box_btn" ' +
+          'onclick="settings_equipment_open(0,0,0,'+device_index+','+element_type_number[device_string_type]+')"> Настройки</button></p>';
         }
-        //objectMenuManager.setHeader('');
-        temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" style="width:150px; onclick="settings_equipment_open(0,0,0,'+device_index+','+element_type_number[device_string_type]+')"> Настройки</button></p>';
-
-        let div_menu = document.getElementById('menu');
-        //div_menu.innerHTML = temp_string;
-        //$( "#menu").dialog( "open" );
-        //New
+       
         objectMenuManager.insertButtons(temp_string);
         objectMenuManager.show(posX,posY);
-}
+  }
 
 
 //меню контроля датчики и контроль открытие
@@ -102,7 +100,8 @@ function datchiki(p1,p2,p3,number) {
               for(var k in dat_cont){
               console.log(k);
                 if (k.charAt(0) =='d') {
-                  string_temp_d_1='<tr><td><input type="text" style="width:15px;height:15px; border-radius: 3px; border: none;border:solid 1px #ccc;" id="dat'+k.substr(1)+'_status" disabled></td>';
+                  string_temp_d_1='<tr><td><input type="text" style="width:15px;height:13px; border-radius: 50px;' +
+                      ' border: none;border:solid 1px #494949;" id="dat'+k.substr(1)+'_status" disabled></td>';
                   string_temp_d_2='<td id="dat'+k.substr(1)+'_name">'+dat_cont[k].name+'</td>';
                   if (dat_cont[k].enable_remont ==0) {
                     string_temp_d_3= '';
@@ -158,10 +157,11 @@ function dat_status(number) {
                   if (dat_cont[k].alarm == 0){
                     if (dat_cont[k].status == 1) {
                       var indikator_datchiki = document.getElementById('dat'+k.substr(1)+'_status');
-                      $(indikator_datchiki).css('backgroundColor','#00FF00');//зеленый
+                      $(indikator_datchiki).css('backgroundColor','lime');//зеленый
+                      $(indikator_datchiki).css('box-shadow','0 0 25px lime');//зеленый
                     }else{
                       var indikator_datchiki = document.getElementById('dat'+k.substr(1)+'_status');
-                      $(indikator_datchiki).css('backgroundColor','#E5E5E6');//серый
+                      /*$(indikator_datchiki).css('backgroundColor','#E5E5E6');//серый*/
                     }
 
                     if (dat_cont[k].remont == 1) {
@@ -169,7 +169,7 @@ function dat_status(number) {
                       $(button_datchiki).css('backgroundColor','#008BE9');//голубой
                     }else{
                       var button_datchiki = document.getElementById('remont'+k.substr(1));
-                      $(button_datchiki).css('backgroundColor','silver');//серый
+                      $(button_datchiki).css('backgroundColor','black');
                     }
 
                   }else{
@@ -236,7 +236,7 @@ function set_position_pt(command,p1,p2,device_index){
     objectMenuManager.hide();
     $('#position_pt_confirmation_window').show();
     for(let i=1;i<=10;i++){
-        temp_string=temp_string+'<td><button onclick="start_stop_mex('+(20+i)+',0,0,'+device_index+')">'+i+'</button></td>'
+        temp_string=temp_string+'<div style="float: left; padding:5px;"><button onclick="start_stop_mex('+(20+i)+',0,0,'+device_index+')">'+i+'</button></div>'
     }
     document.getElementById('PT_pos_buttons').innerHTML = temp_string;
 
@@ -274,19 +274,31 @@ function oll_mex_confirm(command,p2,p3,device_index,type){
     confirm_header_name_tr.innerText=menu_header_text[device_index].longName;
     switch(type){
             case 1:
-                temp_string='<td style="text-align: center; width:50%"><button onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Запуск</button></td><td style="text-align: center; width:50%"><button onclick="oll_mex_confirm_close()">Отмена</button></td>'
-                document.getElementById("oll_mex_message").innerText="Запуск механизма?";
+                temp_string='<td style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Запуск</button></td><td' +
+                    ' style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
+                document.getElementById("oll_mex_message").innerText="Вы уверены?";
                 break;
             case 2:
-                temp_string='<td style="text-align: center; width:50%"><button onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Запуск</button></td><td style="text-align: center; width:50%"><button onclick="oll_mex_confirm_close()">Отмена</button></td>'
-                document.getElementById("oll_mex_message").innerText="Запуск механизма?";
+                temp_string='<td style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Запуск</button></td><td' +
+                    ' style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
+                document.getElementById("oll_mex_message").innerText="Вы уверены?";
                 break;
             case 4:
-                temp_string='<td style="text-align: center; width:50%"><button onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Открыть</button></td><td style="text-align: center; width:50%"><button onclick="oll_mex_confirm_close()">Отмена</button></td>'
+                temp_string='<td style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Открыть</button></td><td' +
+                    ' style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Полностью открыть задвижку?";
                 break;
             case 23:
-                temp_string='<td style="text-align: center; width:50%"><button onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Открыть</button></td><td style="text-align: center; width:50%"><button onclick="oll_mex_confirm_close()">Отмена</button></td>'
+                temp_string='<td style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Открыть</button></td><td' +
+                    ' style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Полностью открыть задвижку?";
                 break;
 

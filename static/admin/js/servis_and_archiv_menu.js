@@ -110,7 +110,10 @@ function showmenu() {
     else{
     } 
     //$( "#menu").dialog( "close" );
-    objectMenuManager.hide();   
+    objectMenuManager.hide();
+    $('.modal_box').css('border','1px solid #494949');
+
+    $('.modal_box').css('box-shadow',' none');
 }
 
 //Выход из страници

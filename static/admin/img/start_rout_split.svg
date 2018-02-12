@@ -23,7 +23,7 @@ viewBox="0 0 6526 1905"
   <style type="text/css">
    <![CDATA[
     @font-face { font-family:"Arial";font-variant:normal;font-style:normal;font-weight:normal;src:url("#FontID0") format(svg)}
-    .fil0 {fill:#323232}
+    .fil0 {fill:#000}
     .fil2 {fill:white}
     .fil1 {fill:#24FF00;fill-rule:nonzero}
     .fil3 {fill:#BCBCBC;fill-rule:nonzero}
