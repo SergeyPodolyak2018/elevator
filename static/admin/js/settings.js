@@ -310,12 +310,10 @@ $('.checkable_data_form').bind("change keyup input click blur ", function() {
     }   
     
 });
-$('.checkable_data_form').bind("blur", function() {
-    
+$('.checkable_data_form').bind("blur", function() {    
     if (this.value == '') {
         this.value = '0';
-    }
-    
+    }    
 });
 
 $('.adres_getable').hover(function() {
