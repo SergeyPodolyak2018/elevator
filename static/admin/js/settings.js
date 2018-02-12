@@ -307,7 +307,11 @@ function settings_equipment_open(p1,p2,p3,index,type){
 $('.checkable_data_form').bind("change keyup input click blur ", function() {
     if (this.value.match(/[^0-9]/g)) {
         this.value = this.value.replace(/[^0-9]/g, '');
-    }
+    }   
+    
+});
+$('.checkable_data_form').bind("blur", function() {
+    
     if (this.value == '') {
         this.value = '0';
     }

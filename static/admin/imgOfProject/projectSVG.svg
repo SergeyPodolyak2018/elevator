@@ -9615,7 +9615,7 @@ viewBox="0 0 70000 50000"
   <g transform="matrix(1 0 0 1 -6774 -3047)">
    <text x="35000" y="25000"  class="fil220 fnt1">СБ7</text>
   </g>
-  <line id="line_x0020_line_x0020_93" class="fil7 str8" x1="31326" y1="34149" x2="31326" y2= "29773" />
+  <line class="line line93 fil7 str8" x1="31326" y1="34149" x2="31326" y2= "29773" />
   <line class="line line101 fil7 str8" x1="34148" y1="31403" x2="34174" y2= "35204" />
   <polygon class="textsourcereceiver108 fil7" points="48705,33675 49672,33675 49672,34262 48705,34262 "/>
   <g transform="matrix(1 0 0 1 13678 9150.99)">
@@ -9976,7 +9976,7 @@ viewBox="0 0 70000 50000"
   <polyline class="line line6 line15 line85 fil7 str8" points="27727,35515 29786,34328 29784,34983 "/>
   <polyline class="line line96 fil7 str8" points="35630,33793 35660,33814 35686,33847 36275,34177 36409,34330 "/>
   <polyline class="line line94 fil7 str8" points="32210,29539 32261,31598 35024,33181 35024,33461 "/>
-  <polyline id="line_x0020_line_x0020_102" class="fil7 str8" points="35087,31276 35125,31300 35125,31406 36389,32085 36424,34339 "/>
+  <polyline class="line line102 fil7 str8" points="35087,31276 35125,31300 35125,31406 36389,32085 36424,34339 "/>
   <g class="konv konv4">
    <g>
     <rect class="konv4manual fil5" transform="matrix(0.866026 -0.5 -5.55112E-17 1.1547 24635.8 42597.9)" width="702" height="298"/>

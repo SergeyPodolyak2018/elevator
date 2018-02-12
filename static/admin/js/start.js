@@ -261,7 +261,7 @@ function setEventOnElement(userType){
                                     }
 
                                 $('.'+element_name+'select',svgdom).css({
-                                    'stroke-width': '50px',
+                                    'stroke-width': '100px',
                                     'stroke':'#f5ed00'
                                 });
                             }, this), 0)},
