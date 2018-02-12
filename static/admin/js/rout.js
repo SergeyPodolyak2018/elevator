@@ -192,8 +192,12 @@ function show_rout_variant_window(json_from_server){
 
     	if ((k.replace(/\d/g, ''))=='variant') {
     		i=i+1;
+            let textColor='';
+            if(rout_wariant[k].color=='#00ff00'){
+                textColor='black';
+            }
     		//table_body=table_body+'<td><button style="width:40px;height:40px;background:'+rout_wariant[k].color+'" onclick="show_rout_variant('+i+')">'+i+'</button></td>';
-    		table_body=table_body+'<td><a href="#" class="button_rout" style="background:'+rout_wariant[k].color+'" onclick="show_rout_variant('+i+',this)">'+i+'</a></td>'
+    		table_body=table_body+'<td><a href="#" class="button_rout" style="background:'+rout_wariant[k].color+'; color:'+textColor+'" onclick="show_rout_variant('+i+',this)">'+i+'</a></td>'
 
     	}
         /*
@@ -229,7 +233,8 @@ function show_rout_variant_window(json_from_server){
 //показать конкретный вариант маршрута
 function show_rout_variant(i,element){
     $('.button_rout').css('background','');
-    $('.button_rout').css('color','#efcd1f');
+    //$('.button_rout').css('color','#efcd1f');
+    $('.button_rout').css('color','');
     $(element).css('background','#00ff00');
     $(element).css('color','black');
 	var url_string = '/route/?source='+0+'&receive='+0+'&command='+2+'&index='+i+'&kylt='+0;
