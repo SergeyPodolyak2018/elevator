@@ -1325,9 +1325,10 @@ select{
                         }
 
 
-                            #table_linck_settings tr:hover,#table_culture_settings tr:hover,#table_device_settings tr:hover
+                            #linck_settings_content_information tr:hover,#culture_settings_content_information tr:hover,#device_settings_content_information tr:hover
                             {
                             background-color: #ffed00;
+                            color:black;
                             }
 
                             #table_linck_settings td, #table_culture_settings td,#table_device_settings td
