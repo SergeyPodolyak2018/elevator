@@ -147,7 +147,7 @@ table_body_alarm_message tbody td{
     cursor: pointer;
     border: 1px solid #494949;
     transition: all .218s ease 0s;
-
+    min-width:70px;
 }
 #table_alarm_message tr td{
     /*background: yellow!important;*/
@@ -470,6 +470,7 @@ a:hover,
     box-shadow: 0 0 10px lime!important;
     background: #0e0e0e!important;
     color:white!important;
+    cursor: pointer;
 }
 #table_rout_variant button{
     width: 40px!important;

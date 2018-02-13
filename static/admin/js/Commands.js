@@ -26,7 +26,7 @@ function menu_kreator(device_index,device_string_type,posX,posY){
   var temp_string='';
   if(device_string_type!='current' & device_string_type!='kylt'& device_string_type!='analog_dat'){
         if(device_index in menu_header_text){
-          $(".ui-dialog-title").text(menu_header_text[device_index].shortName);
+          //$(".ui-dialog-title").text(menu_header_text[device_index].shortName);
           //new
           objectMenuManager.setHeader(menu_header_text[device_index].shortName);
 
@@ -35,22 +35,21 @@ function menu_kreator(device_index,device_string_type,posX,posY){
             data: {},
             success: function(result){
                   var menu_struktura=JSON.parse(result);
-
-                  for (let i in menu_struktura){
-                        if (menu_struktura[i].enable==0) {
-                          temp_string=temp_string+'<p class="button_menu"><button ' +
-                              ' class="modal_box_btn"' +
-                              ' onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px;margin:0;width:150px; color:'+menu_struktura[i].color+'!important;" disabled>'+menu_struktura[i].name+'</button></p>'
-                        } else {
-                          temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px;margin:0;width:150px; color:'+menu_struktura[i].color+'!important">'+menu_struktura[i].name+'</button></p>'
-                        }
-                  }                  
-                  let div_menu = document.getElementById('menu');
-                  //div_menu.innerHTML = temp_string;
-                  //$( "#menu").dialog( "open" );
-                  //New
-                  objectMenuManager.insertButtons(temp_string);
-                  objectMenuManager.show(posX,posY);
+                  //Check object empty or not
+                  if(Object.keys(menu_struktura).length!=0){
+                    for (let i in menu_struktura){
+                          if (menu_struktura[i].enable==0) {
+                            temp_string=temp_string+'<p class="button_menu"><button ' +
+                                ' class="modal_box_btn"' +
+                                ' onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px;margin:0;width:150px; color:'+menu_struktura[i].color+'!important;" disabled>'+menu_struktura[i].name+'</button></p>'
+                          } else {
+                            temp_string=temp_string+'<p class="button_menu"><button class="modal_box_btn" onclick="'+menu_struktura[i].function_name+'('+menu_struktura[i].command+',0,0,'+device_index+','+element_type_number[device_string_type]+')" style="width:150px;margin:0;width:150px; color:'+menu_struktura[i].color+'!important">'+menu_struktura[i].name+'</button></p>'
+                          }
+                    }                  
+                    let div_menu = document.getElementById('menu');                    
+                    objectMenuManager.insertButtons(temp_string);
+                    objectMenuManager.show(posX,posY);
+                  }
               }
             });
         }else{
@@ -70,10 +69,11 @@ function menu_kreator(device_index,device_string_type,posX,posY){
           }
           temp_string=temp_string+'<p class="button_menu"><button style="margin:0;width:150px;" class="modal_box_btn" ' +
           'onclick="settings_equipment_open(0,0,0,'+device_index+','+element_type_number[device_string_type]+')"> Настройки</button></p>';
+          objectMenuManager.insertButtons(temp_string);
+          objectMenuManager.show(posX,posY);
         }
        
-        objectMenuManager.insertButtons(temp_string);
-        objectMenuManager.show(posX,posY);
+        
   }
 
 
@@ -275,35 +275,45 @@ function oll_mex_confirm(command,p2,p3,device_index,type){
     confirm_header_name_tr.innerText=menu_header_text[device_index].longName;
     switch(type){
             case 1:
-                temp_string='<td style="text-align: center; width:50%"><button style="margin-bottom: 0px; class="modal_box_btn"' +
+                temp_string='<td style="text-align: center; "><button style="margin-bottom: 0px; margin:2px;' +
+                    ' float:right;"' +
+                    ' class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Запуск</button></td><td' +
-                    ' style="text-align: center; width:50%"><button  style="margin-bottom: 0px;class="modal_box_btn"' +
+                    ' style="text-align: center; "><button  style="margin-bottom: 0px;' +
+                    ' margin:2px float:left;"class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Вы уверены?";
                 break;
             case 2:
-                temp_string='<td style="text-align: center; width:50%"><button style="margin-bottom: 0px; class="modal_box_btn"' +
+                temp_string='<td style="text-align: center;"><button style="margin-bottom: 0px; margin:2px;' +
+                    ' float:right;"' +
+                    ' class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Запуск</button></td><td' +
-                    ' style="text-align: center; width:50%"><button style="margin-bottom: 0px; class="modal_box_btn"' +
+                    ' style="text-align: center; "><button style="margin-bottom: 0px; margin:2px; float:left;"' +
+                    ' class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Вы уверены?";
                 break;
             case 4:
-                temp_string='<td style="text-align: center; width:50%"><button s' +
-                    'tyle="margin-bottom: 0px;" class="modal_box_btn"' +
+                temp_string='<td style="text-align: center;"><button s' +
+                    'tyle="margin-bottom: 0px; margin:2px; float:right;" class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Открыть</button></td><td' +
-                    ' style="text-align: center; width:50%"><button style="margin-bottom: 0px; class="modal_box_btn"' +
+                    ' style="text-align: center;"><button style="margin-bottom: 0px; margin:2px; float:left;"' +
+                    ' class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Полностью открыть задвижку?";
                 break;
             case 23:
-                temp_string='<td style="text-align: center; width:50%"><button style="margin-bottom:0px;" class="modal_box_btn"' +
+                temp_string='<td style="text-align: center;"><button style="margin-bottom:0px; margin:2px;' +
+                    ' float:right;"' +
+                    ' class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Открыть</button></td><td' +
-                    ' style="text-align: center; width:50%"><button style="margin-bottom:0px;" class="modal_box_btn"' +
+                    ' style="text-align: center;"><button style="margin-bottom:0px; margin: 2px;' +
+                    ' float:left;"' +
+                    ' class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Полностью открыть задвижку?";
                 break;
-
 
             default:
                 alert( 'Мы надеемся, что и в вашем браузере все ок!' );

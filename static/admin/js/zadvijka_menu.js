@@ -53,6 +53,12 @@ function zadvijka_chek_command_rezult(index){
                         $('#zadvijka_time_duration').val(zadvijka_status.zadv_time_duration);
 
                         zadvijka_menu_open();
+                        let div_settings_header_name=document.getElementById('zadvijka_kontrol_menu_header');
+                        console.log(div_settings_header_name);
+                        let selector='td.settings_header_name';
+                        let settings_header_name = div_settings_header_name.querySelectorAll(selector);
+                        console.log(settings_header_name);
+                        settings_header_name[0].innerText=menu_header_text[index].longName;
                         /*$( "#menu").dialog( "close" );*/
                         objectMenuManager.hide();
                         start_ask_zadvijka= setInterval(function() { get_zadvijka_state(index) }, 1000);
@@ -77,6 +83,7 @@ function zadvijka_chek_command_rezult(index){
 
 function zadvijka_menu_open(){
     $('#zadvijka_kontrol_menu').show();
+
 }
 
 

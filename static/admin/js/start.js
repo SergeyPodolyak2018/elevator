@@ -283,7 +283,7 @@ function setEventOnElement(userType){
                        });
 
                         //Диалог запуска устройства
-                        if (userType==1 || userType==2){
+                        if (userType==1 || userType==2 || userType==3){
 	                        $(svgdom.getElementsByClassName(""+i)).on('contextmenu', function(e){
 	                            console.log(($(this).attr('class').split(' ')))
 	                            var element_name =($(this).attr('class').split(' ')[1]);
@@ -296,7 +296,7 @@ function setEventOnElement(userType){
 	                        });
                     	}
                     }else{
-                    	if (userType==1 || userType==2){
+                    	if (userType==1){
 	                         $(svgdom.getElementsByClassName(""+i)).on('contextmenu', function(e){
 	                            var element_name =($(this).attr('class').split(' '));
 	                            

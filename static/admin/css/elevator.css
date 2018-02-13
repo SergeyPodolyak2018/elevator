@@ -518,6 +518,9 @@ html, body { width: 100%; height: 100%; padding: 0; margin: 0 }
 
 
 
+#confirm_mixin_kylt_rout_content p{
+    padding:5px;
+}
 
 /*Меню выбора маршрутов, Меню останова маршрутов, Меню перезапуска маршрутов, Меню авария запуска маршрута*/
 

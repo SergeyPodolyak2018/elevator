@@ -18,11 +18,12 @@ function Сurrent_grafic(){
 	this.axel_Y_value;
 	this.scale;
 	this.last_scale;
+  this.counterForeSelectTime;;
 
 
 	function initialization(){
 
-
+    counterForeSelectTime=1;
 		max_times=25;
 	    counter_times=0;
 	    last_point_X=1000;
@@ -40,13 +41,17 @@ function Сurrent_grafic(){
 
 //Добавление точки в график
 	this.add_point = function(current,time){
+    var internalTime=time;
+    if(counterForeSelectTime!=1){
+      internalTime='-';
+    }
 
 	  var points='';
-      var SVG = document.getElementById('current_svg');
+    var SVG = document.getElementById('current_svg');
 	  var svgdom = SVG.contentDocument;
-      var temp = current_points_Y.push(calculate_y(current));
+    var temp = current_points_Y.push(calculate_y(current));
       temp = current_points_Y.shift();
-      temp = current_times.push(time);
+      temp = current_times.push(internalTime);
       temp = current_times.shift();
       for (var i = 0; i < 60; i++ ){
       points=points+''+(current_points_X[i]*1000)+','+(first_point_Y-current_points_Y[i])+' '
@@ -59,6 +64,10 @@ function Сurrent_grafic(){
        // $(poliline).attr('points','2000,13000, '+points+', 31500,13000');
             $(poliline).attr('points',''+points);
 
+            counterForeSelectTime++;
+            if(counterForeSelectTime>5){
+              counterForeSelectTime=1;
+            }
 
 
 
@@ -96,20 +105,25 @@ this.prepear_grafic = function(max_grafic_current,max_current,nom_current){
 
 //установка маштаба
     function set_scale(scale_value,max_current,nom_current){
-        var max_current_value=scale_value;
+        //var max_current_value=scale_value;
+        //console.log(scale_value);
+        var max_current_value=max_current;
         var step_current_value=max_current_value/10;
         var temp_step_by_step=0;
 
 
         //initialization();
         scale=10000/max_current_value;
+        
         var SVG = document.getElementById('current_svg');
         var svgdom = SVG.contentDocument;
-        for (var i = 0; i < 10; i++ ){
+        for (var i = 0; i < 10; i++ ){            
             temp_step_by_step=temp_step_by_step+step_current_value;
-          var text_Y_axel = svgdom.getElementsByClassName('current_value'+i);
+            let normalValue=temp_step_by_step.toFixed(1);            
+            let text_Y_axel = svgdom.getElementsByClassName('current_value'+i);
 
-          $(text_Y_axel).text(''+temp_step_by_step);
+          //$(text_Y_axel).text(''+temp_step_by_step);
+          $(text_Y_axel).text(''+normalValue);
 
         }
         //линия максимум

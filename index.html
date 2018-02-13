@@ -147,8 +147,10 @@
              <div id="rout_variant_footer" >
                  <table width="100%" cellspacing="2" cellpadding="1" border="0">
                      <tr>
-                         <td ></td><td><button class="modal_box_btn btn_push_right" style="padding-left: 0px; padding-right: 0px; width: 70px;" onclick="exit_rout_variant(event)">Отмена</button><button style="width: 70px; padding-left:0px;padding-right:0px;" class="modal_box_btn btn_push_right" onclick="start_chek_variant()">OK</button></td>
-
+                         <td style="text-align: center;">
+                         <button style="width: 70px; padding-left:0px;padding-right:0px; margin-bottom: 0px;" class="modal_box_btn" onclick="start_chek_variant()">OK</button>
+                             <button class="modal_box_btn" style="padding-left: 0px; padding-right: 0px; width: 70px; margin-bottom: 0px;" onclick="exit_rout_variant(event)">Отмена</button>
+                         </td>
                      </tr>
 
                  </table>
@@ -185,14 +187,15 @@
                  
                  
                      <tr>
-                         <td width="50%">
+                         <td width="60%">
                             &nbsp                            
                          </td>
                          <td >
-                            <button class="modal_box_btn" style="float:right;width: 85px;">Запуск</button>
+                            <button class="modal_box_btn" style="float:right;width: 85px; margin-right: 0px;">Запуск
+                            </button>
                          </td>
                          <td >                            
-                            <button class="modal_box_btn" style="float:right;width: 85px;" onclick="exit_rout_variant(event)">Отмена</button>
+                            <button class="modal_box_btn" style="width: 85px;" onclick="exit_rout_variant(event)">Отмена</button>
                          </td>
                      </tr>
                      
@@ -223,10 +226,7 @@
                          <tbody id="stop_rout_confirmation_footer_button" style="text-align:center;">
 
                          </tbody>
-                     </table>
-
-                <!--<button style="float: right;" onclick="" class="modal_box_btn btn_push_right">Отмена</button>
-                <button style="float: right;" onclick="" class="modal_box_btn">Остановить</button>-->
+                     </table>                
             </div>
 
         </div>
@@ -251,10 +251,7 @@
                          <tbody id="restart_rout_confirmation_footer_button" style="text-align: center;">
 
                          </tbody>
-                     </table>
-
-                <!-- <button style="float: right;" onclick="" class="modal_box_btn btn_push_right">Отмена</button>
-                 <button style="float: right;" onclick="" class="modal_box_btn">Перезапустить</button>-->
+                     </table>                
              </div>
         </div>
 
@@ -271,18 +268,12 @@
              </div>
 
              <!--<div id="alarm_rout_content" style="background-color:#f2ff00">-->
-             <div id="alarm_rout_content" class="modal_box_body border" style="background-color:#f2ff00; color:#000;">
-                 <p id="alarm_rout_message" style="font-size: 14px; padding:5px; margin:5px;border-radius:10px;">
+             <div id="alarm_rout_content" class="" style="background-color:#f2ff00; color:#000; padding:5px; margin:5px; border-radius:10px; color:#000;">
+                 <p id="alarm_rout_message" style="font-size: 14px!important; padding:5px;
+                 margin:5px;border-radius:10px;">
 
-                 </p>
-                    <!--
-                    <tbody>
-                         <tr>
-                             <td  align="center"></td>
-                         </tr>
 
-                         </tbody>
-                         -->
+                 </p>                    
              </div>
              <div id="alarm_rout_footer" >
                  <table width="100%" cellspacing="2" cellpadding="1" border="0">
@@ -296,29 +287,8 @@
 
                      </tr>
                      </tbody>
-
                  </table>
-
-             </div>
-
-             <!--<div id="alarm_rout_footer1" >
-                     &lt;!&ndash;<table width="100%" cellspacing="2" cellpadding="1" border="0">&ndash;&gt;
-                         &lt;!&ndash;<tbody id="alarm_rout_footer_button">&ndash;&gt;
-                             &lt;!&ndash;<tr>&ndash;&gt;
-                                 &lt;!&ndash;<td width="20%">&ndash;&gt;
-                                     &lt;!&ndash;<button onclick="start_rout_variant()">Запуск</button>&ndash;&gt;
-                                 &lt;!&ndash;</td>&ndash;&gt;
-                                 &lt;!&ndash;<td width="60%">&nbsp</td>&ndash;&gt;
-                                 &lt;!&ndash;<td width="80%">&ndash;&gt;
-                                     &lt;!&ndash;<button onclick="exit_rout_variant()">Отмена</button>&ndash;&gt;
-                                 &lt;!&ndash;</td>&ndash;&gt;
-                             &lt;!&ndash;</tr>&ndash;&gt;
-                         &lt;!&ndash;</tbody>&ndash;&gt;
-                     &lt;!&ndash;</table>&ndash;&gt;
-
-                 <button style="float: right;" onclick="exit_rout_variant()" class="modal_box_btn btn_push_right">Отмена</button>
-                 <button style="float: right;" onclick="start_rout_variant()" class="modal_box_btn">Запуск</button>
-             </div>-->
+             </div>             
          </div>
 
 <!-- Выпадающее меню архив-->
@@ -338,12 +308,8 @@
              <a href="#" class="menu_button">О программе</a>
          </div>
  <!-- Выпадающее меню настройки-->        
-         <div id="configuration" class="hiden">
-             <!--<a href="#" class="menu_button">Авторизация</a>-->
-             <a href="#" id="menu_button_setings_bell_open" class="menu_button">Настройки звонка</a>
-             <!--<a href="#" id="menu_button_setings_bell_open" class="menu_button" onclick="setings_bell_open()">Настройки звонка</a>
-             <a href="#" class="menu_button" onclick="device_settings_open()">БД устройств</a>
-             <a href="#" class="menu_button" onclick="linck_open()">БД связей</a>-->
+         <div id="configuration" class="hiden">             
+             <a href="#" id="menu_button_setings_bell_open" class="menu_button">Настройки звонка</a>             
              <a href="#" id="menu_button_device_settings" class="menu_button">БД устройств</a>
              <a href="#" id="menu_button_linck_open" class="menu_button">БД связей</a>
              <a href="#" class="menu_button">БД тех. характеристик</a>
@@ -351,16 +317,11 @@
              <a href="#" class="menu_button">БД типы работ</a>
              <a href="#" class="menu_button">БД моточасы</a>
              <a href="#" class="menu_button">БД пользователей</a>
-             <!--<a href="#" class="menu_button">Отладка</a>-->
-
          </div>
          <!-- Выпадающее меню культура-->
-         <div id="kulture" class="hiden">
-             <!--<a href="#" class="menu_button" onclick="showHideKylt()">Скрыть/Показать культ.</a>   -->
-             <!--<a href="#" id="menu_button_culture_open" class="menu_button" onclick="culture_open()">Справочник культур</a>-->
+         <div id="kulture" class="hiden">             
              <a href="#" id="menu_button_culture_open" class="menu_button">Справочник культур</a>
              <a href="#" class="menu_button">Карта культур</a>
-
          </div>
         <!-- Выпадающее меню настройки видимости-->
          <div id="visiblSettings" class="hiden">
@@ -435,8 +396,7 @@
 
 
                 </div>
-                 <div id="archiv_message_footer" >
-                     <!--<button onclick="archiv_alarm_close()" class="modal_box_btn btn_push_right">Закрыть</button>-->
+                 <div id="archiv_message_footer" >                     
                      <table width="100%" cellspacing="2" cellpadding="1" border="0">
                          <tr>
                              <td>&nbsp</td><td><button class="modal_box_btn" style="float:right;" onclick="archiv_alarm_close()">Закрыть</button></td>
@@ -484,6 +444,7 @@
                     <div id="table_head_rchiv_rout">
                         <div style="float: left; text-align:center;border-top:1px solid #494949;border-left:1px solid #494949;">Дата</div>
                         <div style="float: left; text-align:center;border-top:1px solid #494949;border-left:1px solid #494949;">Время</div>
+
                         <div style="float: left; text-align:center;border-top:1px solid #494949;border-left:1px solid
                          #494949;min-width: 160px;">Начало маршрута</div>
                         <div style="float: left; text-align:center;border-top:1px solid #494949;border-left:1px solid
@@ -504,13 +465,7 @@
                 </div>
 
                  <div id="archiv_rout_footer" >
-                     <button onclick="archiv_rout_close()" class="modal_box_btn btn_push_right">Закрыть</button>
-                     <!--<table width="100%" cellspacing="2" cellpadding="1" border="0">-->
-                         <!--<tr>-->
-                             <!--<td width="80%">&nbsp</td>-->
-                             <!--<td><button onclick="archiv_rout_close()">Закрыть</button></td>-->
-                         <!--</tr>-->
-                     <!--</table>-->
+                     <button onclick="archiv_rout_close()" class="modal_box_btn btn_push_right">Закрыть</button>                     
                  </div>
              </div>
 
@@ -547,22 +502,7 @@
                      </table>
                  </div>
 
-                <div id="archiv_device_content" style="margin-left:5px;margin-bottom:0px;">
-                   <!-- <table class="table" style="min-width: 450px;">
-                        <thead>
-                        <tr>
-                            <td>Дата</td>
-                            <td>Время</td>
-                            <td>Название</td>
-                            <td>Статус</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-
-                        </tr>
-                        </tbody>
-                    </table>-->
+                <div id="archiv_device_content" style="margin-left:5px;margin-bottom:0px;">                   
 
                   <div id="table_head_rchiv_device">
                     <div style="float:left; text-align: center;padding-top:5px; padding-bottom:5px; border-left:1px solid #494949;border-top:1px solid #494949;border-radius: 10px 0px 0px 0px; padding-left:0px;background: #0e0e0e">Дата</div>
@@ -584,13 +524,7 @@
                 </div>
                 
                  <div id="archiv_device_footer" >
-                     <button  onclick="archiv_device_close()" class="modal_box_btn btn_push_right">Закрыть</button>
-                     <!--<table width="100%" cellspacing="2" cellpadding="1" border="0">-->
-                         <!--<tr>-->
-                             <!--<td width="80%">&nbsp</td>-->
-                             <!--<td><button onclick="archiv_device_close()">Закрыть</button></td>-->
-                         <!--</tr>-->
-                     <!--</table>-->
+                     <button  onclick="archiv_device_close()" class="modal_box_btn btn_push_right">Закрыть</button>                     
                  </div>
              </div>
 
@@ -634,14 +568,6 @@
                  <div id="alarm_message_footer" >
                      <button style="float: right;" onclick="alarm_message_close()" class="modal_box_btn btn_push_right">Закрыть</button>
                      <button style="float: right;" onclick="alarm_confirmation_all()" class="modal_box_btn">Квитировать все</button>
-                     <!-- <table width="100%" cellspacing="2" cellpadding="1" border="0">
-                     <tr>
-                         <td width="80%" style="text-align: left"><button onclick="alarm_confirmation_all()">Квитировать все</button></td><td><button onclick="alarm_message_close()">Закрыть</button></td>
-
-                     </tr>
-
-                 </table>-->
-
                  </div>
             </div>
 
@@ -655,7 +581,9 @@
 
                  </table>
              </div>
-             <div id="confirm_mixin_kylt_rout_content" style="background-color:#f2ff00; margin-top:5px;margin-left:5px;margin-right:5px; margin-bottom:0px;border-radius:10px; color:black; font-size:14px; padding-left:5px; margin-top:5px;margin-bottom:5px;" >
+             <div id="confirm_mixin_kylt_rout_content"
+                  style="background-color:#f2ff00;;margin-left:5px;margin-right:5px;
+                  margin-bottom:0px;border-radius:10px; color:black; font-size:14px; padding-left:5px;" >
                  <p>Запустить маршрут со смешиванием культур?</p>
              </div>
 
@@ -666,8 +594,10 @@
                              <td width="20%"></td>
                              <td>&nbsp</td>
                              <td width="80%">
-                                <button class="modal_box_btn" style="float:right;margin-top:0px;" onclick="exit_rout_variant()">Отмена</button>
-                                <button class="modal_box_btn" style="float:right; margin-top:0px;" onclick="start_rout_variant()">Запуск</button>
+                                <button class="modal_box_btn" style="float:right;margin-top:0px; "
+                                        onclick="exit_rout_variant()">Отмена</button>
+                                <button class="modal_box_btn" style="float:right; margin-top:0px;width:85px;"
+                                        onclick="start_rout_variant()">Запуск</button>
                              </td>
                          </tr>
                      </tbody>
@@ -745,11 +675,13 @@
                  <div id="zadvijka_kontrol_menu_header" class="modal_box_header" style="background-color: #0e0e0e;">
                      <table width="100%" cellspacing="2" cellpadding="1" border="0">
                                    <tr>
-                                       <td width="90%" style="padding-top: 7px">Управление задвижкой
-                                           <div class="header-wrap" style="float:right;">
-                                               <a href="#"  onclick="zadvijka_menu_close()" class="btn btn-default btn-back">
-                                                <span></span>
-                                               </a>
+                                       <td style="padding-top: 7px">Управление задвижкой</td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 27px;padding-top:7px" class="settings_header_name"></td>
+                                       <td>
+                                            <div class="header-wrap" style="float:right;margin-top:-2px">
+                                                <a href="#"  onclick="zadvijka_menu_close()" class="btn btn-default btn-back">
+                                                    <span></span>
+                                                </a>
                                             </div>
                                        </td>
                                    </tr>
@@ -1698,8 +1630,11 @@
 
                     <div id="settings_silos_aditional" width="45%">
 
-                        <table class="table" id="table_settings_silos_aditional" cellspacing="1" cellpadding="1" border="0" style="padding-top: 7px; border-top:none;">
-                            <tr><td colspan="2" style="background-color:#0e0e0e; color: #ccc">Специальные настройки</td></tr>
+                        <table class="table" id="table_settings_silos_aditional" cellspacing="1" cellpadding="1" border="0" style="border-top:none;">
+
+                            <tr><td colspan="2"
+                                    style="background-color:#0e0e0e; color: #ccc; border-radius:10px 10px 0px 0px;">Специальные
+                                настройки</td></tr>
                             <tr><td>Индекс уст-ва</td><td><input name="EquipIndex" SIZE=4 readonly></td></tr>
                             <tr><td>Уст-во в работе</td><td><select style="width: 98%;" name="FlagsMachine_bit7"><option value="0">0</option><option value="1">1</option></select></td></tr>
                             <tr><td>Тайм-аут, с</td><td><input name="Vent_time_off" SIZE=4></td></tr>
@@ -2769,8 +2704,9 @@
                          <table class="table" id="table_settings_bell_aditional" width="100%" cellspacing="1" cellpadding="1" border="0" style="margin-left: 0px;">
                              <thead>
                              <tr><td colspan="3" style="border-bottom: 1px solid grey; background: #0e0e0e">
-                                 <div  class="name_options activ_modal_sub_menu group_a" style="float:left; ">Группа А</div>
-                                 <div  class="name_options group_b" style="float:left; ">Группа Б</div>
+                                 <div  class="name_options activ_modal_sub_menu group_a"
+                                       style="float:left; margin-right: 5px;">Группа А</div>
+                                       <div  class="name_options group_b" style="float:left; ">Группа Б</div>
                              </td></tr>
                              <tr style="text-align: center">
                                  <td>Название</td>
@@ -3075,7 +3011,7 @@
                                      <td>Индекс объекта установки культуры</td><td><input id="Kylt_device_Index" SIZE=4 readonly></td>
                                  </tr>
                                  <tr>
-                                     <td>Индекс объекта установки культуры</td><td ><select style="width: 100%" id="kylt_set_confirmation_list"></select></td>
+                                     <td>Название культуры</td><td ><select style="width: 100%" id="kylt_set_confirmation_list"></select></td>
                                  </tr>
                              </tbody>
                         </table>
@@ -3168,7 +3104,7 @@
                         <table class="table" id="table_linck_settings"  cellspacing="1" cellpadding="1" border="0">
                             <thead>
                                 <tr>
-                                    <td>Номер связи</td>
+                                    <td>Индекс</td>
                                     <td>Источник</td>
                                     <td>Команда</td>
                                     <td>Приемник</td>
@@ -3354,7 +3290,7 @@
                             <thead>
                                 <tr>
                                     <td>ID</td>
-                                    <td>Индекс культуры</td>
+                                    <td>Индекс</td>
                                     <td>Название</td>
                                     <td>Обозначение</td>
                                     <td>Аспирация</td>
@@ -3469,7 +3405,7 @@
                      <table class="" width="100%" cellspacing="1" cellpadding="1" border="0">
                             <tr>
                                 <td width="90%" style="padding-top:7px;" id="confirmation_header_name"></td>
-                                <div class="header-wrap" style="float:right;">
+                                <div class="header-wrap" style="float:right; margin-top:7px;">
                                     <a href="#"  onclick="oll_mex_confirm_close()" class="btn btn-default btn-back"><span></span></a>
                                 </div>
                             </tr>
@@ -3517,7 +3453,7 @@
                  </div>
                  <div style="clear: both;"></div>
                  <div id="datchiki_kontrol_footer" style="background: #0e0e0e;" >
-                     <button class="btn_push_right modal_box_btn" onclick="close_datchiki()">закрыть</button>
+                     <button class="btn_push_right modal_box_btn" onclick="close_datchiki()">Закрыть</button>
 
                  </div>
              </div>
