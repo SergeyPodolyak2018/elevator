@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!--Отключение зума как такового-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     
     <title>Элеватор</title>
     <link href="/static/admin/img/favicon.png" rel="shortcut icon" type="image/x-icon" />
@@ -263,15 +263,16 @@
              <div id="alarm_rout_header" class="modal_box_header">
                  <table width="100%" cellspacing="2" cellpadding="1" border="0" style="padding-top: 7px;">
                      <tr>
-                         <td width="90%">Cообщения<div class="header-wrap" style="float:right;margin-top:-3px; margin-right: -5px;">
-                            </td>
-                     </tr>
+                         <td width="90%">Cообщения<div class="header-wrap" style="float:right;margin-top:0px;margin-right: -5px;">
+                             <a href="#"  onclick="exit_rout_variant()" class="btn btn-default btn-back"><span></span></a>
+                         </div>
+                        </td>
                  </table>
              </div>
 
              <!--<div id="alarm_rout_content" style="background-color:#f2ff00">-->
              <div id="alarm_rout_content" class="modal_box_body border" style="background-color:#f2ff00; color:#000;">
-                 <p id="alarm_rout_message">
+                 <p id="alarm_rout_message" style="font-size: 14px; padding:5px; margin:5px;border-radius:10px;">
 
                  </p>
                     <!--
@@ -287,7 +288,11 @@
                  <table width="100%" cellspacing="2" cellpadding="1" border="0">
                      <tbody id="alarm_rout_footer_button">
                      <tr>
-                         <td class="modal_box_btn btn_push_right" width="20%"><button  onclick="start_rout_variant()">Запуск</button></td><td width="60%">&nbsp</td><td width="80%"><button onclick="exit_rout_variant()">Отмена</button></td>
+                         <td  width="20%"></td>
+                         <td >&nbsp</td>
+                         <td width="80%"><button style="float:right;" class="modal_box_btn" onclick="exit_rout_variant()">Отмена</button>
+                             <button style="float:right;" class="modal_box_btn" onclick="start_rout_variant()">Запуск</button>
+                         </td>
 
                      </tr>
                      </tbody>
@@ -415,7 +420,7 @@
                     <div style="float: left; text-align:center;border-left:1px solid #494949;border-top:1px solid #494949;">Время</div>
                     <div style="float: left; text-align:center;border-left:1px solid #494949;border-top:1px solid #494949;">Название</div>
                     <div style="float: left; text-align:center;border-left:1px solid #494949;border-top:1px solid #494949;">Сообщение</div>
-                    <div style="float: left; text-align:center;border-left:1px solid #494949;border-top:1px solid #494949;border-radius:0px 0px 0px 10px">Ст</div>
+                    <div style="float: left; text-align:center;border-left:1px solid #494949;border-top:1px solid #494949;border-radius:0px 0px 0px 0px">Ст</div>
                   </div>
 
                   <div style="width: 100%;float: left">
@@ -641,28 +646,32 @@
             </div>
 
 
-         <div id="confirm_mixin_kylt_rout" class="draggable">
-             <div id="confirm_mixin_kylt_rout_header">
+         <div id="confirm_mixin_kylt_rout" class="draggable modal_box">
+             <div id="confirm_mixin_kylt_rout_header" class="modal_box_header">
                  <table width="100%" cellspacing="2" cellpadding="1" border="0">
-                     <tr><td width="90%">Cообщения</td></tr>
+
+                     <tr><td width="90%" style="padding-top:7px;" >Cообщения <div class="header-wrap" style="float:right;margin-top:0px;margin-right: -5px;">
+                     <a href="#"  onclick="exit_rout_variant()" class="btn btn-default btn-back"><span></span></a></div></td></tr>
 
                  </table>
              </div>
-             <div id="confirm_mixin_kylt_rout_content" style="background-color:#f2ff00">
+             <div id="confirm_mixin_kylt_rout_content" style="background-color:#f2ff00; margin-top:5px;margin-left:5px;margin-right:5px; margin-bottom:0px;border-radius:10px; color:black; font-size:14px; padding-left:5px; margin-top:5px;margin-bottom:5px;" >
                  <p>Запустить маршрут со смешиванием культур?</p>
              </div>
 
              <div id="confirm_mixin_kylt_rout_footer" >
                  <table width="100%" cellspacing="2" cellpadding="1" border="0">
                      <tbody id="confirm_mixin_kylt_rout_footer_button">
-                     <tr>
-                         <td width="20%"><button  onclick="start_rout_variant()">Запуск</button></td><td width="60%">&nbsp</td><td width="80%"><button onclick="exit_rout_variant()">Отмена</button></td>
-
-                     </tr>
+                         <tr>
+                             <td width="20%"></td>
+                             <td>&nbsp</td>
+                             <td width="80%">
+                                <button class="modal_box_btn" style="float:right;margin-top:0px;" onclick="exit_rout_variant()">Отмена</button>
+                                <button class="modal_box_btn" style="float:right; margin-top:0px;" onclick="start_rout_variant()">Запуск</button>
+                             </td>
+                         </tr>
                      </tbody>
-
                  </table>
-
              </div>
          </div>
          <!--окно графики токов-->
@@ -733,13 +742,15 @@
     <!--Меню управления для задвижки под зилосом-->
 
             <div id="zadvijka_kontrol_menu"  class="draggable modal_box" style="background-color: #191919; ">
-                 <div id="zadvijka_kontrol_menu_header" class="modal_box_header" style="background-color: #0e0e0e; height: 35px; padding-top: 12px;">
+                 <div id="zadvijka_kontrol_menu_header" class="modal_box_header" style="background-color: #0e0e0e;">
                      <table width="100%" cellspacing="2" cellpadding="1" border="0">
                                    <tr>
-                                       <td width="90%">
-                                          Управление задвижкой<div class="header-wrap" style="float:right;margin-top:-3px; margin-right: -5px;">
-                                           <a href="#"  onclick="zadvijka_menu_close()" class="btn btn-default btn-back"><span></span></a>
-                                       </div>
+                                       <td width="90%" style="padding-top: 7px">Управление задвижкой
+                                           <div class="header-wrap" style="float:right;">
+                                               <a href="#"  onclick="zadvijka_menu_close()" class="btn btn-default btn-back">
+                                                <span></span>
+                                               </a>
+                                            </div>
                                        </td>
                                    </tr>
                      </table>
@@ -815,16 +826,16 @@
                                 <tr>
                                     <!--<td><button id="zadvijka_kontrol_menu_button_calibrate" onclick="show_zadvijka_state()">Калибровка</button></td>-->
                                     <td style="width: 215px;">
-                                        <a class="modal_box_btn" style="text-decoration: none; width: 170px;padding-right: 0px;padding-left: 0px;" href="#" id="zadvijka_kontrol_menu_button_calibrate" onclick="zadvijka_send_comand_from_button(5,0,0)">
-                                            Калибровка</a>
+
+                                        <a class="modal_box_btn" style="text-decoration: none; width: 170px;padding-right: 0px;padding-left: 0px; padding-top:0px; padding-bottom: 0px;" href="#" id="zadvijka_kontrol_menu_button_calibrate" onclick="zadvijka_send_comand_from_button(5,0,0)"> Калибровка</a>
                                     </td>
                                     <td  style="text-align: right">
-                                        <button class="modal_box_btn" style="width:165px;" id="zadvijka_kontrol_menu_button_save" onclick="disabled_button(); zadvijka_send_comand_from_button(8,0,0)">Сохранить</button></td>
+                                        <button class="modal_box_btn" style="width:165px; padding-top:0px; padding-bottom: 0px;" id="zadvijka_kontrol_menu_button_save" onclick="disabled_button(); zadvijka_send_comand_from_button(8,0,0)">Сохранить</button></td>
                                 </tr>
                             </table>
                         </div>
 
-                        <div id="zadvijka_kontrol_menu_content_control" style="padding-top:5px;margin-top:5px;border-radius:10px;  border: 1px solid #494949; padding-bottom: 5px;">
+                        <div id="zadvijka_kontrol_menu_content_control" style="padding-top:5px;margin-top:5px;border-radius:10px;  border: 1px solid #494949; padding-bottom: 0px;">
                             <table>
                                 <thead>
                                     <tr >
@@ -875,16 +886,19 @@
                                     <table id="zadvijka_kontrol_menu_content_control_button">
                                             <tr>
                                                 <td>
-                                                    <button class="modal_box_btn" style="width:165px; margin-top: 5px;" id="zadvijka_kontrol_menu_button_open">Открыть по времени</button>
+                                                    <button class="modal_box_btn" style="width:165px; margin-top: 5px;padding-top:0px; padding-bottom: 0px;" id="zadvijka_kontrol_menu_button_open">Открыть по времени</button>
                                                 </td>
                                                 <td style="text-align: right;">
-                                                    <button class="modal_box_btn" style="width:165px; margin-top: 5px; margin-bottom: 0px;" id="zadvijka_kontrol_menu_button_close">Закрыть по времени</button>
+                                                    <button class="modal_box_btn" style="width:165px; margin-top: 5px; margin-bottom: 0px;padding-top:0px; padding-bottom: 0px; margin-top:0px"
+                                                            id="zadvijka_kontrol_menu_button_close">Закрыть по времени</button>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:215px;"></td>
                                                 <td style="text-align: right;">
-                                                    <button class="modal_box_btn " style="width:165px; margin-top: 5px;" id="zadvijka_kontrol_menu_button_full_close">Полное закрытие</button>
+                                                    <button class="modal_box_btn " style="width:165px; margin-top:
+                                                    0px;padding-top:0px; padding-bottom: 0px;"
+                                                            id="zadvijka_kontrol_menu_button_full_close">Полное закрытие</button>
                                                 </td>
                                             </tr>
 
@@ -915,11 +929,12 @@
                                        <div id="settings_noriya_total_settings" class="name_options activ_modal_sub_menu" style="float:left; margin-right:5px;"> Общие настройки</div>
                         <div id="settings_noriya_spicial_settings" class="name_options" style="float:left; ">Специальные настройки</div>
                                    </span></td>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" 
-                                           class="settings_header_name">Конвеер пт-27</td><td>
-                                           <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
-                                               <a href="#"  onclick="setings_universal_close(1)" class="btn btn-default btn-back"><span></span></a>
-                                           </div></td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 23px;" class="settings_header_name"></td>
+                                           <td>
+                                               <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
+                                                   <a href="#"  onclick="setings_universal_close(1)" class="btn btn-default btn-back"><span></span></a>
+                                               </div>
+                                           </td>
                                    </tr>
                                        <!--<div class="header-wrap">
                                        <a onclick="setings_universal_close(1)" href="/" type="button" class="btn btn-default btn-back"><span></span></a>
@@ -1121,7 +1136,7 @@
                                        <div id="settings_konveyer_total_settings" class="name_options activ_modal_sub_menu" style="float:left; margin-right:5px;"> Общие настройки</div>
                                         <div id="settings_konveyer_spicial_settings" class="name_options" style="float:left; ">Специальные настройки</div>
                                    </span>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" class="settings_header_name">Конвеер пт-27</td><td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 22px;" class="settings_header_name">Конвеер пт-27</td><td>
                                        <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
                                                <a href="#"  onclick="setings_universal_close(2)" class="btn btn-default btn-back"><span></span></a>
                                            </div></td>
@@ -1315,7 +1330,7 @@
                                        <div id="settings_zadvijka_settings" class="name_options activ_modal_sub_menu" style="float:left; margin-right:5px;"> Общие настройки</div>
                                         <div id="settings_zadvijka_spicial_settings" class="name_options" style="float:left; ">Специальные настройки</div>
                                    </span>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" class="settings_header_name">Конвеер пт-27</td><td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 22px;" class="settings_header_name">Конвеер пт-27</td><td>
                                        <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
                                                <a href="#"  onclick="setings_universal_save(4)" class="btn btn-default btn-back"><span></span></a>
                                            </div></td></tr>
@@ -1458,7 +1473,7 @@
                                         <!--<div id="settings_zadvijkaGroup_index_settings" class="name_options" style="float:left; ">Индексы задвижек в общей группе</div>-->
                                    </span>
                                    </td>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" class="settings_header_name">Конвеер пт-27</td><td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 22px;" class="settings_header_name">Конвеер пт-27</td><td>
                                            <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
                                                <a href="#"  onclick="setings_universal_close(23)" class="btn btn-default btn-back"><span></span></a>
                                            </div></td>
@@ -1669,7 +1684,7 @@
                  <div id="settings_silos_header" class="modal_box_header">
                      <table width="100%" cellspacing="1" cellpadding="1" border="0" style="padding-top: 7px;">
                                    <tr><td width="70%">Настройки</td>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" class="settings_header_name">Конвеер пт-27</td><td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 22px;" class="settings_header_name">Конвеер пт-27</td><td>
                                            <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
                                                <a href="#"  onclick="setings_universal_close(14)" class="btn btn-default btn-back"><span></span></a>
                                            </div></td></tr>
@@ -1683,8 +1698,8 @@
 
                     <div id="settings_silos_aditional" width="45%">
 
-                        <table class="table" id="table_settings_silos_aditional" cellspacing="1" cellpadding="1" border="0" style="padding-top: 7px;">
-                             <tr><td colspan="2" style="background-color:#0e0e0e; color: #ccc">Специальные настройки</td></tr>
+                        <table class="table" id="table_settings_silos_aditional" cellspacing="1" cellpadding="1" border="0" style="padding-top: 7px; border-top:none;">
+                            <tr><td colspan="2" style="background-color:#0e0e0e; color: #ccc">Специальные настройки</td></tr>
                             <tr><td>Индекс уст-ва</td><td><input name="EquipIndex" SIZE=4 readonly></td></tr>
                             <tr><td>Уст-во в работе</td><td><select style="width: 98%;" name="FlagsMachine_bit7"><option value="0">0</option><option value="1">1</option></select></td></tr>
                             <tr><td>Тайм-аут, с</td><td><input name="Vent_time_off" SIZE=4></td></tr>
@@ -1784,7 +1799,7 @@
                                        <div id="settings_klapan_spicial_settings" class="name_options" style="float:left; ">Специальные настройки</div>
                                    </span>
                                    </td>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" class="settings_header_name">Конвеер пт-27</td><td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 22px;" class="settings_header_name">Конвеер пт-27</td><td>
                                            <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
                                                <a href="#"  onclick="setings_universal_close(3)" class="btn btn-default btn-back"><span></span></a>
                                            </div></td>
@@ -1924,7 +1939,7 @@
                                         <div id="settings_ventilyator_spicial_settings" class="name_options" style="float:left; ">Специальные настройки</div>
                                    </span>
                          </td>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" class="settings_header_name">Конвеер пт-27</td><td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 22px;" class="settings_header_name">Конвеер пт-27</td><td>
                                            <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
                                                <a href="#"  onclick="setings_universal_close(6)" class="btn btn-default btn-back"><span></span></a>
                                            </div></td>
@@ -2075,7 +2090,7 @@
 
 
                                    </td>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" class="settings_header_name">Конвеер пт-27</td><td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 22px;" class="settings_header_name">Конвеер пт-27</td><td>
                                            <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
                                                <a href="#"  onclick="setings_universal_close(18)" class="btn btn-default btn-back"><span></span></a>
                                            </div></td>
@@ -2452,7 +2467,7 @@
                  <div id="settings_separator_header" class="modal_box_header">
                      <table width="100%" cellspacing="1" cellpadding="1" border="0" style="padding-top:7px;">
                                    <tr><td width="20%">Настройки</td>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" class="settings_header_name">Конвеер пт-27</td><td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 22px;" class="settings_header_name">Конвеер пт-27</td><td>
                                        <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
                                            <a href="#"  onclick="setings_universal_close(17)" class="btn btn-default btn-back"><span></span></a>
                                        </div></td></tr>
@@ -2548,7 +2563,7 @@
                                    </span>
 
                                    </td>
-                                       <td style="color:#ffa200; text-align:right; padding-right: 18px;" class="settings_header_name">Конвеер пт-27</td><td>
+                                       <td style="color:#ffa200; text-align:right; padding-right: 22px;" class="settings_header_name">Конвеер пт-27</td><td>
                                            <div class="header-wrap" style="float:right;margin-top:-10px; margin-right: -5px;">
                                            <a href="#"  onclick="setings_universal_close(19)" class="btn btn-default btn-back"><span></span></a>
                                        </div></td>
@@ -3277,10 +3292,10 @@
 <!--Окошко изменения строки базы устройств-->
          <div id="change_row_device_settings" class="draggable modal_box">
 
-                 <div id="change_row_device_settings_header" class="modal_box_header" style="width: 100%;padding-top: 9px;padding-bottom: 12px;">
-                     <table width="100%" cellspacing="1" cellpadding="1" border="0" style="margin-top: 2px;margin-bottom: 12px;">
-                         <tr><td width="90%">Изменение атрибутов устройства
-                             <div class="header-wrap" style="float:right;margin-top:-3px; margin-right: -5px;">
+                 <div id="change_row_device_settings_header" class="modal_box_header" style="width: 100%;">
+                     <table width="100%" cellspacing="1" cellpadding="1" border="0">
+                         <tr><td width="90%" style="padding-top: 7px;">Изменение атрибутов устройства
+                             <div class="header-wrap" style="float:right;margin-top:0px; margin-right: -5px;">
                                  <a href="#"  onclick="change_row_device_settings_close()" class="btn btn-default btn-back"><span></span></a>
                              </div>
                          </td></tr>
@@ -3450,11 +3465,14 @@
                   <!--___Полное открытие задвижки____-->
 
          <div id="oll_mex_confirmation_window" class="draggable modal_box" >
-                 <div id="oll_mex_confirmation_window_header" class="modal_box_header" style="padding-top:10px; padding-bottom:10px;">
+                 <div id="oll_mex_confirmation_window_header" class="modal_box_header" >
                      <table class="" width="100%" cellspacing="1" cellpadding="1" border="0">
-                            <tr><td width="90%" id="confirmation_header_name"></td><div class="header-wrap" style="float:right;margin-top:-3px; margin-right: -5px;">
-                                <a href="#"  onclick="oll_mex_confirm_close()" class="btn btn-default btn-back"><span></span></a>
-                            </div></tr>
+                            <tr>
+                                <td width="90%" style="padding-top:7px;" id="confirmation_header_name"></td>
+                                <div class="header-wrap" style="float:right;">
+                                    <a href="#"  onclick="oll_mex_confirm_close()" class="btn btn-default btn-back"><span></span></a>
+                                </div>
+                            </tr>
                      </table>
                  </div>
                 <div id="oll_mex_confirmation_window_content" class="modal_box_body" style="width: 98%">
@@ -3480,7 +3498,7 @@
              <div id="datchiki_kontrol" class="hiden_datchiki draggable modal_box">
                  <div id="datchiki_kontrol_header" class="modal_box_header" style="background:#0e0e0e; color:#ccc;">
                      <table width="100%" cellspacing="2" cellpadding="1" border="0">
-                         <tr><td width="30%">Датчики</td><td id="fool_name_of_device" style="color:#ffa200; float:right; padding-right:30px;">название</td><div class="header-wrap" style="float:right;margin-top:-3px; margin-right: -5px;">
+                         <tr><td width="30%">Датчики</td><td id="fool_name_of_device" style="color:#ffa200; float:right; padding-right:30px;">название</td><div class="header-wrap" style="float:right; margin-right: -5px;">
                              <a href="#"  onclick="close_datchiki()" class="btn btn-default btn-back"><span></span></a>
                          </div></tr>
 

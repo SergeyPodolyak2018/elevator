@@ -161,7 +161,8 @@ function send_rout_data(){
 
             	} else {
             		$('#alarm_rout_content').text(route_variant_temp.message);
-	            	var alarm_rout_footer_button_temp = '<tr><td width="99%" align="center"><button class="modal_box_btn" onclick="close_alarm_rout(event)">Ок</button></td></tr>';
+	            	var alarm_rout_footer_button_temp = '<tr><td width="99%" align="center"><button' +
+                        ' class="modal_box_btn" onclick="close_alarm_rout(event)">ОK</button></td></tr>';
 	            	$('#alarm_rout_footer_button').html(alarm_rout_footer_button_temp);
 	            	$('#alarm_rout').show();
             	}
@@ -297,7 +298,8 @@ function start_chek_variant(){
                 }
             	if (rout_source_receiver.status ==4) {	
                     $('#alarm_rout_content').html(rout_source_receiver.message);
-	            	var alarm_rout_footer_button_temp = '<tr><td width="99%" align="center"><button class="modal_box_btn" onclick="close_alarm_rout(event)">Ок</button></td></tr>';
+	            	var alarm_rout_footer_button_temp = '<tr><td width="99%" align="center"><button' +
+                        ' class="modal_box_btn" onclick="close_alarm_rout(event)">ОK</button></td></tr>';
 	            	$('#alarm_rout_footer_button').html(alarm_rout_footer_button_temp);
 	            	$('#alarm_rout').show();
             	}
@@ -323,10 +325,10 @@ function confirm_mixing_kylt(){
 
 
 //выйти из проверки вариантов
-function exit_rout_variant(e){
-    console.log(e);
-    e.preventDefault();
-    e.stopPropagation();
+function exit_rout_variant(){
+    //console.log(e);
+    //e.preventDefault();
+    //e.stopPropagation();
 	var url_string = '/route/?source='+0+'&receive='+0+'&command='+4+'&index='+0+'&kylt='+0;
         $.ajax({
             url: url_string,
@@ -354,10 +356,10 @@ function exit_rout_variant(e){
 }
 
 //запуск конкретного варианта
-function start_rout_variant(e){
-    console.log(e);
-    e.preventDefault();
-    e.stopPropagation();
+function start_rout_variant(){
+    //console.log(e);
+    //e.preventDefault();
+    //e.stopPropagation();
 	var url_string = '/route/?source='+0+'&receive='+0+'&command='+5+'&index='+0+'&kylt='+0;
         $.ajax({
             url: url_string,
@@ -407,8 +409,13 @@ function restart_rout_variant_confirm(source_index){
 
 	 $(svgdom.getElementsByClassName("source")).off();
 
-	$('#restart_rout_confirmation_footer_button').html('<tr><td width="33%"><button onclick="manual_restart('+source_index+')">Ручной запуск</button></td><td width="33%"><button onclick="auto_restart('+source_index+')">Авт. запуск</button></td><td width="30%"><button onclick="exit_restart()">Отмена</button></td></tr>')
-	$('#restart_rout_confirmation').show();
+	$('#restart_rout_confirmation_footer_button').html('<tr><td width="33%"><button style="width: 125px;"' +
+        ' class="modal_box_btn"' +
+        ' onclick="manual_restart('+source_index+')">Ручной запуск</button></td><td width="33%"><button' +
+        ' style="width: 125px;" class="modal_box_btn"' +
+        ' onclick="auto_restart('+source_index+')">Авт. запуск</button></td><td width="30%"><button' +
+        ' style="width: 125px;" class="modal_box_btn" onclick="exit_restart()">Отмена</button></td></tr>');
+    $('#restart_rout_confirmation').show();
 
 }
 

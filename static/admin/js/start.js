@@ -176,7 +176,7 @@ $(window).load(function () {
           get_kylt_list();
 
         //Inicialization prevent defoult on some elements
-         // inicializePreventDefoult();
+         inicializePreventDefoult();
 
         //Asck user status and inicialithe elements
 		asckerStatusOfUser();

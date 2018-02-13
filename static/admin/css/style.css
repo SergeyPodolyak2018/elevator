@@ -34,7 +34,7 @@ table_body_alarm_message tbody td{
     padding: 0px!important;
 }
 
-#device_settings_content td,linck_settings_content td {
+#device_settings_content thead,linck_settings_content td {
     padding: 5px!important;
 }
 .footer_table1 td#Name_devise{width: 1.8%;}

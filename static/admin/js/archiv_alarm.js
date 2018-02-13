@@ -187,7 +187,8 @@ function archiv_rout(){
             	temp_string='';
             	for (var i  in message) {
             		//temp_string=temp_string+'<tr><td>'+message[i].id+'</td><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].source+'</td><td>'+message[i].receive+'</td><td>'+message[i].kylt+'</td><td>'+message[i].status+'</td></tr>'
-            	    temp_string=temp_string+'<tr><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td>'+message[i].source+'</td><td>'+message[i].receive+'</td><td>'+message[i].kylt+'</td><td>'+message[i].status+'</td></tr>'
+            	    temp_string=temp_string+'<tr><td>'+message[i].date+'</td><td>'+message[i].time+'</td><td' +
+                        ' style="min-width: 160px;">'+message[i].source+'</td><td style="min-width: 160px;">'+message[i].receive+'</td><td>'+message[i].kylt+'</td><td>'+message[i].status+'</td></tr>'
 
             	}
             	var div_menu = document.getElementById('table_rchiv_rout');

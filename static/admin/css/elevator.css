@@ -524,7 +524,7 @@ html, body { width: 100%; height: 100%; padding: 0; margin: 0 }
                         #rout_confirmation, #stop_rout_confirmation, #restart_rout_confirmation,#alarm_rout,#confirm_mixin_kylt_rout{
                             /*visibility: visible;*/
                             display: none;
-                            width: 400px;
+                            width: 420px;
                             height: 400px;
 
                             position: absolute;

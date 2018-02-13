@@ -175,6 +175,7 @@ function dat_status(number) {
                   }else{
                     var indikator_datchiki = document.getElementById('dat'+k.substr(1)+'_status');
                     $(indikator_datchiki).css('backgroundColor','red');
+                    $(indikator_datchiki).css('box-shadow','0 0 25px red');
                   }
                 }
                 if (k.charAt(0) =='c') {
@@ -274,33 +275,35 @@ function oll_mex_confirm(command,p2,p3,device_index,type){
     confirm_header_name_tr.innerText=menu_header_text[device_index].longName;
     switch(type){
             case 1:
-                temp_string='<td style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                temp_string='<td style="text-align: center; width:50%"><button style="margin-bottom: 0px; class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Запуск</button></td><td' +
-                    ' style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' style="text-align: center; width:50%"><button  style="margin-bottom: 0px;class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Вы уверены?";
                 break;
             case 2:
-                temp_string='<td style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                temp_string='<td style="text-align: center; width:50%"><button style="margin-bottom: 0px; class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Запуск</button></td><td' +
-                    ' style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' style="text-align: center; width:50%"><button style="margin-bottom: 0px; class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Вы уверены?";
                 break;
             case 4:
-                temp_string='<td style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                temp_string='<td style="text-align: center; width:50%"><button s' +
+                    'tyle="margin-bottom: 0px;" class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Открыть</button></td><td' +
-                    ' style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' style="text-align: center; width:50%"><button style="margin-bottom: 0px; class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Полностью открыть задвижку?";
                 break;
             case 23:
-                temp_string='<td style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                temp_string='<td style="text-align: center; width:50%"><button style="margin-bottom:0px;" class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_confirm('+command+',0,0,'+device_index+')">Открыть</button></td><td' +
-                    ' style="text-align: center; width:50%"><button class="modal_box_btn"' +
+                    ' style="text-align: center; width:50%"><button style="margin-bottom:0px;" class="modal_box_btn"' +
                     ' onclick="oll_mex_confirm_close()">Отмена</button></td>'
                 document.getElementById("oll_mex_message").innerText="Полностью открыть задвижку?";
                 break;
+
 
             default:
                 alert( 'Мы надеемся, что и в вашем браузере все ок!' );
