@@ -100,8 +100,8 @@ function datchiki(p1,p2,p3,number) {
               for(var k in dat_cont){
               console.log(k);
                 if (k.charAt(0) =='d') {
-                  string_temp_d_1='<tr><td><input type="text" style="width:15px;height:13px; border-radius: 50px;' +
-                      ' border: none;border:solid 1px #494949;" id="dat'+k.substr(1)+'_status" disabled></td>';
+                  string_temp_d_1='<tr><td><div style="width:15px;height:15px; -webkit-border-radius: 50px;border-radius: 50px;' +
+                      ' border: none;border:solid 1px #494949;" id="dat'+k.substr(1)+'_status"></div></td>';
                   string_temp_d_2='<td id="dat'+k.substr(1)+'_name">'+dat_cont[k].name+'</td>';
                   if (dat_cont[k].enable_remont ==0) {
                     string_temp_d_3= '';
@@ -157,34 +157,36 @@ function dat_status(number) {
                   if (dat_cont[k].alarm == 0){
                     if (dat_cont[k].status == 1) {
                       var indikator_datchiki = document.getElementById('dat'+k.substr(1)+'_status');
-                      $(indikator_datchiki).css('backgroundColor','#32cd32');//зеленый
-                      $(indikator_datchiki).css('box-shadow','0 0 25px #32cd32');//зеленый
+                      $(indikator_datchiki).css('background','#00FF00');//зеленый
+                      $(indikator_datchiki).css('box-shadow','0 0 25px #00FF00');//зеленый
+                      $(indikator_datchiki).css('-webkit-box-shadow','0 0 25px #00FF00');
                     }else{
                       var indikator_datchiki = document.getElementById('dat'+k.substr(1)+'_status');
-                      /*$(indikator_datchiki).css('backgroundColor','#E5E5E6');//серый*/
+                      /*$(indikator_datchiki).css('background','#E5E5E6');//серый*/
                     }
 
                     if (dat_cont[k].remont == 1) {
                       var button_datchiki = document.getElementById('remont'+k.substr(1));
-                      $(button_datchiki).css('backgroundColor','#008BE9');//голубой
+                      $(button_datchiki).css('background','#008BE9');//голубой
                     }else{
                       var button_datchiki = document.getElementById('remont'+k.substr(1));
-                      $(button_datchiki).css('backgroundColor','black');
+                      $(button_datchiki).css('background','black');
                     }
 
                   }else{
                     var indikator_datchiki = document.getElementById('dat'+k.substr(1)+'_status');
-                    $(indikator_datchiki).css('backgroundColor','red');
+                    $(indikator_datchiki).css('background','red');
                     $(indikator_datchiki).css('box-shadow','0 0 25px red');
+                    $(indikator_datchiki).css('-webkit-box-shadow','0 0 25px red');
                   }
                 }
                 if (k.charAt(0) =='c') {
                     if (dat_cont[k].status == 1) {
                       var indikator_control = document.getElementById('control'+k.charAt(1));
-                      $(indikator_control).css('backgroundColor','#00FF00');//зеленый
+                      $(indikator_control).css('background','#00FF00');//зеленый
                     }else{
                       var indikator_control = document.getElementById('control'+k.charAt(1));
-                      $(indikator_control).css('backgroundColor','#E5E5E6');//серый
+                      $(indikator_control).css('background','#E5E5E6');//серый
                     }
                   }
                 }
