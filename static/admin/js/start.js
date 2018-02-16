@@ -13,6 +13,7 @@ var global_object_oll_kylt_from_server='';    //oll kylt from servere in one obj
 var global_kylt_from_server_formated={};      //formated list of kylt to use in future in different menu
 var element_type_number={'konv':2,'klapan':3,'nor':1,'zadvijka':4,'silos':14,'dryer':16,'separator':17,'gate':18,'vent':6,'tube':7,'car':15,'enable':19,'zadvijkaGroup':23,'current':100,'kylt':101, 'analog_dat':102};//существующие типы элементов
 var globalObjectSatusOfUser;
+var pressTimerForeHoldOnIpadOreIphone;
 
 //Function thet hide status of user
 function statusOfuser(user){
@@ -182,13 +183,12 @@ $(window).load(function () {
 		asckerStatusOfUser();
 		
 		//Функция перетаскивания------------------------------
-          $( ".draggable" ).draggable({distance: 15});//
+         // $( ".draggable" ).draggable({distance: 15});//
+
         //------------------------------------------------------
 
         //Функция зумирования
-         initialize();
-
-        
+         initialize();     
 
 		
 
@@ -281,19 +281,45 @@ function setEventOnElement(userType){
                             $("#Name_devise").text(elementIndex);
                             $("#footer_help").text(menu_header_text[elementIndex].longName);
                        });
+                       
 
                         //Диалог запуска устройства
                         if (userType==1 || userType==2 || userType==3){
-	                        $(svgdom.getElementsByClassName(""+i)).on('contextmenu', function(e){
-	                            console.log(($(this).attr('class').split(' ')))
-	                            var element_name =($(this).attr('class').split(' ')[1]);
-	                            var temp_string_name=element_name.match(/-*[a-z]+/i);
-	                            var elementIndex=parseInt(element_name.match(/-*[0-9]+/));
-	                            $("#Name_devise").text(elementIndex);
-	                            $("#footer_help").text(menu_header_text[elementIndex].longName);
-	                            menu_kreator(parseInt(element_name.match(/-*[0-9]+/)),temp_string_name,e.clientX,e.clientY);
-	                            return false;
-	                        });
+                            //this pease of shet is only fore safary and ipad
+                            console.log(navigator.userAgent);
+                            if(/iPhone|iPad|iPod/i.test(navigator.userAgent)){
+                                $(svgdom.getElementsByClassName(""+i)).on('touchend', function (e){                                
+                                    clearTimeout(pressTimerForeHoldOnIpadOreIphone);
+                                }).on('touchstart', function (e) {                               
+                                   let pisya=e;                               
+                                   // Set timeout
+                                   pressTimerForeHoldOnIpadOreIphone = window.setTimeout(function() {Pisda(pisya);}, 1000)
+                               });
+                                    function Pisda(pisya){
+                                        console.log(pisya);                                    
+                                            console.log(pisya.currentTarget.className.animVal)
+                                            var element_name =(pisya.currentTarget.className.animVal.split(' ')[1]);
+                                            var temp_string_name=element_name.match(/-*[a-z]+/i);
+                                            var elementIndex=parseInt(element_name.match(/-*[0-9]+/));
+                                            $("#Name_devise").text(elementIndex);
+                                            $("#footer_help").text(menu_header_text[elementIndex].longName);
+                                            menu_kreator(parseInt(element_name.match(/-*[0-9]+/)),temp_string_name,pisya.originalEvent.changedTouches[0].clientX,pisya.originalEvent.changedTouches[0].clientY);
+                                    }
+                            }else{
+                                //This fore normal devices not fore ipad
+                                $(svgdom.getElementsByClassName(""+i)).on('contextmenu', function(e){
+                                    e.stopPropagation();
+                                    console.log(($(this).attr('class').split(' ')))
+                                    var element_name =($(this).attr('class').split(' ')[1]);
+                                    var temp_string_name=element_name.match(/-*[a-z]+/i);
+                                    var elementIndex=parseInt(element_name.match(/-*[0-9]+/));
+                                    $("#Name_devise").text(elementIndex);
+                                    $("#footer_help").text(menu_header_text[elementIndex].longName);
+                                    menu_kreator(parseInt(element_name.match(/-*[0-9]+/)),temp_string_name,e.clientX,e.clientY);
+                                    return false;
+                                });
+
+                            }
                     	}
                     }else{
                     	if (userType==1){

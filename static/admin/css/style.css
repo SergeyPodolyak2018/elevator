@@ -85,6 +85,20 @@ table_body_alarm_message tbody td{
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: #ccc;
+    cursor: default!important;
+}
+.modal_box_rel {
+    background-color: #191919;
+    border:1px solid #494949;
+    /* box-shadow: 0 0 10px rgba(239, 205, 31, 1);*/
+
+    border-radius: 10px;
+    padding: 0px 0px 0px 0px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #ccc;
+    cursor: default!important;
 }
 
 /* Шапка модальных окон */
@@ -118,6 +132,8 @@ table_body_alarm_message tbody td{
     font-size: 12px;
     line-height: 1.42857143;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch!important;
+
 }
 
 
@@ -567,6 +583,7 @@ a.menu_button:focus{
 }
 #archiv_device_content,#archiv_message_content{
     overflow-y: hidden;
+    -webkit-overflow-scrolling: touch!important;
 }
 #archive_current_filter_tools_equipment,#current_filter_tools_equipment{
     width: 150px;

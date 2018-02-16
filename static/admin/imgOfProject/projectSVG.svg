@@ -38,6 +38,16 @@ viewBox="0 0 70000 50000"
   </font>
   <style type="text/css">
    <![CDATA[
+   text {
+    -webkit-user-select: none !important;
+       -moz-user-select: none !important;
+        -ms-user-select: none !important;
+            user-select: none !important;
+
+            -webkit-touch-callout: none !important;               
+-webkit-text-size-adjust: none !important;             
+-webkit-user-select: none !important;                 
+}
     @font-face { font-family:"Arial";font-variant:normal;font-style:normal;font-weight:normal;src:url("#FontID0") format(svg)}
     .str35 {stroke:#331C17;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.501961}
     .str22 {stroke:#5B5B5B;stroke-width:7.62;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.501961}

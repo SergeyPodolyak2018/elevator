@@ -126,9 +126,9 @@ function showmenu() {
                 url: url_string,
                 data: {},
                 success: function( result ) {
-                    document.open();
-                    document.write(result);
-                    document.close();
+                    //document.open();
+                    //document.write(result);
+                    //document.close();
                     window.location.reload()       
                 }              
                 

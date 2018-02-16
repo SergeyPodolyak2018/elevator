@@ -1,4 +1,19 @@
-html, body { width: 100%; height: 100%; padding: 0; margin: 0 }
+svg text {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;        
+                       
+-webkit-text-size-adjust: none;             
+-webkit-user-select: none;   
+-webkit-touch-callout: none !important; 
+}
+svg text::selection {
+    background: none;
+}
+
+
+html, body { width: 100%; height: 100%; padding: 0; margin: 0; -webkit-touch-callout: none !important;  -webkit-user-select: none !important; }
         html { overflow:  hidden; }
 
         #container {
@@ -51,6 +66,8 @@ html, body { width: 100%; height: 100%; padding: 0; margin: 0 }
 #kulture{
     z-index:9999999;
 }
+        #zoomInOut{width: 5%;height: 10%;}
+
         @media only screen and (min-device-width : 1024px) and (max-device-width : 1366px){
             #servis{
                 margin-top:4px;
@@ -687,7 +704,10 @@ html, body { width: 100%; height: 100%; padding: 0; margin: 0 }
 
                         #table_rchiv_message, #table_rchiv_rout,#table_rchiv_device{
                           display: block;
+
                           overflow-y: auto;
+                            -webkit-overflow-scrolling: touch!important;
+
                           max-height: 275px;
                           border-collapse: collapse;
                         }
@@ -700,6 +720,9 @@ html, body { width: 100%; height: 100%; padding: 0; margin: 0 }
                         #table_rchiv_message{
                             margin-left: 5px;
                             margin-right: 5px;
+                        }
+                        #oll_route_statuses{
+                            cursor: default;
                         }
 
                         #table_rchiv_rout td,#table_rchiv_device td{
@@ -1154,8 +1177,8 @@ select{
     /*width: px;*/
     height: auto;
     position: absolute;
-    top:5%;
-    left:10%;
+    top:45%;
+    left:45%;
 }
 
 

@@ -5,9 +5,13 @@
     var rightArrow	= 39;
     var downArrow   = 40;
     var panRate     = 500;	// Number of pixels to pan per key press.
-    var zoomRate    = 1.1;	// Must be greater than 1. Increase this value for faster zooming (i.e., less granularity).
+    var zoomRate    = 1.05;	// Must be greater than 1. Increase this value for faster zooming (i.e., less granularity).
     var priviusMauseKoordinatX=0;
     var priviusMauseKoordinatY=0;
+    var priviusTouchKoordinatX=0;
+    var priviusTouchKoordinatY=0;
+    var priviusDistanseX=0;
+    var koef=100;
     /* Globals: */
     var theSvgElement;
 
@@ -51,11 +55,13 @@
       {
         viewBoxValues[2] /= zoomRate;	// Decrease the width and height attributes of the viewBox attribute to zoom in.
         viewBoxValues[3] /= zoomRate;
+        koef=koef*0.90;
       }
       else if (zoomType == 'zoomOut')
       {
         viewBoxValues[2] *= zoomRate;	// Increase the width and height attributes of the viewBox attribute to zoom out.
         viewBoxValues[3] *= zoomRate;
+        koef=koef*1.1;
       }
       else
         alert("function zoom(zoomType) given invalid zoomType parameter.");
@@ -65,6 +71,7 @@
 
     function zoomViaMouseWheel(mouseWheelEvent)
     {
+      console.log('her');
       if (mouseWheelEvent.wheelDelta > 0)
         zoom('zoomIn');
       else
@@ -75,29 +82,59 @@
       return false;
     }
 
-    function initialize()
-    {
-      /* Add event listeners: */
-      //window.addEventListener('keydown', processKeyPress, true);		// OK to let the keydown event bubble.
-      //window.addEventListener('mousewheel', zoomViaMouseWheel, false);	// This is required in case the user rotates the mouse wheel outside of the object element's "window".
+    function initialize(){
 
-      var theSvgDocument = document.getElementById('nor').getSVGDocument();	// Not all browsers current support the getSVGDocument() method (as described in the W3C SVG spec).
-      theSvgElement = theSvgDocument.documentElement;    								// Sets a global variable. Best to only access the SVG element after the page has fully loaded.
+      let theSvgDocument = document.getElementById('nor').getSVGDocument(); // Not all browsers current support the getSVGDocument() method (as described in the W3C SVG spec).
+      theSvgElement = theSvgDocument.documentElement;
+
+      if ('ontouchstart' in window) { 
+
+        inicializePlazMinuz();
+
+        theSvgElement.addEventListener("touchmove", function(e){
+        if(e.changedTouches.length==2){
+           if(priviusTouchKoordinatX==0 & priviusTouchKoordinatY==0){
+              priviusTouchKoordinatX=e.changedTouches[0].clientX;
+              priviusTouchKoordinatY=e.changedTouches[0].clientY;
+            }
+           let deltaX=e.changedTouches[0].clientX-priviusTouchKoordinatX;
+           let deltaY=e.changedTouches[0].clientY-priviusTouchKoordinatY;        
+                                  
+           priviusTouchKoordinatX=e.changedTouches[0].clientX;
+           priviusTouchKoordinatY=e.changedTouches[0].clientY;
+           console.log('x='+deltaX+'  y='+deltaY);
+           mouseMuvSvg(deltaX,deltaY);
+        } }, false);
+
+        theSvgElement.addEventListener('touchend', touchendF, false);
+      }else{
+        console.log('pesda');
+        document.getElementById('zoomInOut').style.display='none';    
+      }
+      
+      /* Add event listeners: */      
+      function inicializePlazMinuz(){
+        let SVGdokumentPlaz = document.getElementById("zoomIn_svg").getSVGDocument();
+        let SVGdokumentMinuz = document.getElementById("zoomOut_svg").getSVGDocument();
+        let  theSvgElementPlaz = SVGdokumentPlaz.documentElement;   
+        let  theSvgElementMinuz = SVGdokumentMinuz.documentElement;   
+        theSvgElementPlaz.addEventListener("touchstart", function(){console.log('her123'); zoom('zoomIn'); mouseMuvSvg(-7,-7);},false);
+        theSvgElementMinuz.addEventListener("touchstart", function(){console.log('her124'); zoom('zoomOut');mouseMuvSvg(+7,+7);},false);
+        
+      }
+      // Sets a global variable. Best to only access the SVG element after the page has fully loaded.
 
       theSvgElement.addEventListener('keydown', processKeyPress, true);			// This is required in case the user presses an arrow key inside of the object element's "window".
       theSvgElement.addEventListener('mousewheel', zoomViaMouseWheel, false);	// This is required in case the user rotates the mouse wheel inside of the object element's "window".
-
+     
+      //window.addEventListener('touchmove', HeroviyHer, false);
       theSvgElement.addEventListener('mousedown', mousedownF, false);
-      theSvgElement.addEventListener('mouseup', mouseupF, false);
+      theSvgElement.addEventListener('mouseup', mouseupF, false); 
 
-
-      /* If desired, one can set the initial size and position of the embedded SVG graphic here: */
-      //Kutsovka
-      //theSvgElement.setAttribute('viewBox', 0 + " " + (-5000) + " " + 85000 + " " + 55000);  // The original width and height of this particular SVG graphic is 3816 and 612, respectively.
-
+        
     }
 
-
+    //Скрол мыши
       function mousedownF(){
         this.addEventListener('mousemove', mousemuveF, false);
       }
@@ -107,7 +144,14 @@
         priviusMauseKoordinatX=0;
         priviusMauseKoordinatY=0;
       }
-
+      //Конец перемещения
+      function touchendF(){
+        console.log('asdasdfasdfasdfsdfasdfasdfas');
+        priviusTouchKoordinatX=0;
+        priviusTouchKoordinatY=0;
+        priviusDistanseX=0;
+      }
+//Общая функция перемещения мыщью
       function mousemuveF(e){
         if(e.ctrlKey){
            theSvgElement.style.cursor="move";
@@ -120,10 +164,12 @@
                 
                 priviusMauseKoordinatX=e.clientX;
                 priviusMauseKoordinatY=e.clientY;
+
                 mouseMuvSvg(deltaX,deltaY);
           }
       }
 
+//Перемещение самого свгешника
       function mouseMuvSvg(deltaX,deltaY)
     {
       var viewBox = theSvgElement.getAttribute('viewBox');  // Grab the object representing the SVG element's viewBox attribute.
@@ -131,9 +177,17 @@
       
       viewBoxValues[0] = parseFloat(viewBoxValues[0]);    // Convert string "numeric" values to actual numeric values.
       viewBoxValues[1] = parseFloat(viewBoxValues[1]);
-      viewBoxValues[0] -= (deltaX*100);
-      viewBoxValues[1] -= (deltaY*100);     
+      //viewBoxValues[0] -= (deltaX*100);
+      //viewBoxValues[1] -= (deltaY*100);  
+      viewBoxValues[0] -= (deltaX*koef);
+      viewBoxValues[1] -= (deltaY*koef);     
       
 
       theSvgElement.setAttribute('viewBox', viewBoxValues.join(' ')); // Convert the viewBoxValues array into a string with a white space character between the given values.
+    }
+    //$(window).scroll(function(){zoomViaMouseWheel()});
+
+
+    function HeroviyHer(e){
+      console.log(e);
     }

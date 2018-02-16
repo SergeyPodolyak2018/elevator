@@ -170,7 +170,7 @@ function createDivWithTable(){
                             border-radius: 2px;';
 
     divForeProject.setAttribute('id','oll_route_statuses');
-    divForeProject.setAttribute('class','draggable');
+    divForeProject.setAttribute('class','draggable modal_box');
 
 	var tableForeProject=document.createElement('table');
 	tableForeProject.style.cssText='border: 1px solid #000000;'

@@ -157,8 +157,8 @@ function dat_status(number) {
                   if (dat_cont[k].alarm == 0){
                     if (dat_cont[k].status == 1) {
                       var indikator_datchiki = document.getElementById('dat'+k.substr(1)+'_status');
-                      $(indikator_datchiki).css('backgroundColor','lime');//зеленый
-                      $(indikator_datchiki).css('box-shadow','0 0 25px lime');//зеленый
+                      $(indikator_datchiki).css('backgroundColor','#32cd32');//зеленый
+                      $(indikator_datchiki).css('box-shadow','0 0 25px #32cd32');//зеленый
                     }else{
                       var indikator_datchiki = document.getElementById('dat'+k.substr(1)+'_status');
                       /*$(indikator_datchiki).css('backgroundColor','#E5E5E6');//серый*/
