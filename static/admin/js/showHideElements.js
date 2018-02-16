@@ -194,7 +194,7 @@ $('#settings_konveyer_spicial_settings').click(function () {
     $('#settings_konveyer_spicial_settings').addClass('activ_modal_sub_menu');
 });
 
-/*
+
 $('.modal_box').click(function () {
     $('.modal_box').css('border','1px solid #494949');
     $('.modal_box').css('z-index','910');
@@ -202,4 +202,4 @@ $('.modal_box').click(function () {
     $(this).css('border','1px solid #efcd1f');
     $(this).css('z-index','999999');
     $(this).css('box-shadow',' 0 0 10px rgba(239, 205, 31, 1)');
-});*/
+});

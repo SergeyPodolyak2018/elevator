@@ -2933,10 +2933,6 @@ Draggable.create(".draggable", {
     }
 
 });
-Draggable.create(".scroller", {
-	type:"scrollTop",
-	edgeResistance:0.5}
-	);
 
 
 
